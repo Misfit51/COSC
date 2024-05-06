@@ -7,3 +7,21 @@ Python Handbook: https://git.cybbh.space/programming/python/public
 ssh student@10.50.38.228 windows_opstation_2tgg
 ssh student@10.50.32.226 linux_opstation_2tgg ***Use this one***
 
+Python handbook saved to /public/activities
+
+>>> 
+
+>>> print("Hello world")
+Hello world
+
+>>> a = "hello"
+>>> a
+'hello'
+
+vim .vimrc 
+
+#!/usr/bin/env python3
+  
+a = "hello"
+print(a)
+
