@@ -5,11 +5,11 @@ Python Handbook: https://git.cybbh.space/programming/python/public
 10.50.255.254
 
 ssh student@10.50.38.228 windows_opstation_2tgg
-ssh student@10.50.32.226 linux_opstation_2tgg ***Use this one***
+ssh student@10.50.32.226 linux_opstation_2tgg   #Use this one
 
 Python handbook saved to /public/activities
 
->>> 
+>>> reple
 
 >>> print("Hello world")
 Hello world
@@ -24,4 +24,88 @@ vim .vimrc
   
 a = "hello"
 print(a)
+
+#"type" tells you the class
+
+>>> cosc = '503'
+>>> list(cosc)    #lists are mutable, go off zero index
+['5', '0', '3']
+>>> cosc[0]       #Brackets [] denote the index point
+'5'
+
+>>> cosc = list(cosc)    #cosc is being overwritten 
+>>> cosc
+['5', '0', '3']
+>>> cosc[0] = '1'
+>>> cosc
+['1', '0', '3']
+>>> str(cosc)
+"['1', '0', '3']"
+
+  >>> tuple('lotr')  >>> tuple('lotr')
+('l', 'o', 't', 'r')
+>>> tuple('lotr')[-1]
+'r'
+>>> 'lotr'[-1]
+'r'
+
+                  #tuples are like lists but cannot be changed (if asked to return a tuple, typecast into a tuple)
+>>> cosc
+['1', '0', '3']
+>>> del cosc[-1]
+>>> cosc
+['1', '0']
+
+>>> cosc.append('3')  #append is a function that adds to the end
+>>> cosc
+['1', '0', '3']
+
+>>> lotr = []         #make list, append
+>>> lotr.append('Aragorn')
+>>> lotr
+['Aragorn']
+
+>>> a = 'Hello'
+>>> b = 'world!'
+>>> ''
+''
+>>> '{} {}'.format(a,b)   #.format
+'Hello world!'
+>>> print('{} {}'.format(a,b))
+Hello world!
+
+>>> 'hello world'.split()   #splits on the gap
+['hello', 'world']
+
+>>> 'user:passwd'.split(':')    #splits on the :
+['user', 'passwd']
+>>> 'hello'.split()
+['hello']
+
+['user', 'passwd', '/bin/bash']    #.join
+>>> ''.join(passwd)
+'userpasswd/bin/bash'
+
+
+*****KMN*****
+
+#!/usr/bin/env python3
+
+email = 'last@domain.com'
+blank = []
+a = email.split('@')[0]
+b = (email.split('@')[1]).split('.')
+blank.append(a)
+blank.append(b[0])
+blank.append(b[1])
+
+print(blank)
+
+***OR***
+
+#!/usr/bin/env python3
+ 
+email = 'last@domain.com'
+print(('.'.join(email.split('@'))).split('.'))
+
 
