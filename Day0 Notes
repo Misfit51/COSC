@@ -1,7 +1,9 @@
 Setup Guide: https://cctc.cybbh.io/students/students/latest/Day_0_Setup.html 
 Python Handbook: https://git.cybbh.space/programming/python/public
+
 10.50.0.0/16
-Ssh student@10.50.255.254
-		10.50.38.228 windows_opstation_2tgg
-		10.50.32.226 linux_opstation_2tgg ***Use this one***
+10.50.255.254
+
+ssh student@10.50.38.228 windows_opstation_2tgg
+ssh student@10.50.32.226 linux_opstation_2tgg ***Use this one***
 
