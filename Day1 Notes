@@ -9,6 +9,7 @@ ssh student@10.50.32.226 linux_opstation_2tgg   #Use this one
 
 Python handbook saved to /public/activities
 
+python3
 >>> reple
 
 >>> print("Hello world")
