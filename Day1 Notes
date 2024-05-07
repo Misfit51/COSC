@@ -109,4 +109,7 @@ print(blank)
 email = 'last@domain.com'
 print(('.'.join(email.split('@'))).split('.'))
 
+***From CodeWars***
 
+def string_to_array(string):
+    return string.split(" ")
