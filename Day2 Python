@@ -83,6 +83,15 @@ def guess_number(n):
 
 guess_number(23)
 
-***While loop practice***
 
 
+***For loops***
+
+party = ['Gengar','Charmander','Pikachu','Bulbasaur']
+for i in party:
+   print(i)
+
+counter = 0
+for poke in party:
+   print('Pokemon {} is {}!'.format(counter+1,poke))
+   counter += 1
