@@ -1,5 +1,45 @@
+***REVIEW***
 basic data types: int float str bool
 tuples, list[0]
 basic math
 typecast
 print() type()
+brace expansion #pemdas for parenthesis 
+.split() .join() .append()
+
+***LIST EXAMPLE***
+list('hello')
+world = list('hello')
+world
+['h , 'e' , 'l' , 'l' , 'o']
+world[0]
+h
+world[0] = 'j'
+world
+['j , 'e' , 'l' , 'l' , 'o']
+jiff[0] = 'h'
+jiff
+['h , 'e' , 'l' , 'l' , 'o']
+''.join(jiff)
+'hello'
+
+
+***LOOPS AND FLOW CONTROL***  
+
+Branching
+
+***FizzBuzz***
+
+#!/usr/bin/env python3
+
+num = int(input('Type a number:\n'))
+if num % 5 == 0 and num % 3 == 0:
+   print('fizzbuzz')
+elif num % 3 == 0:
+    print('fizz')
+elif num % 5 == 0:
+    print('buzz')
+else:
+    print(num)
+
+
