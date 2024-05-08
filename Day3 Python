@@ -1,3 +1,5 @@
+list_of_words = len(fp.read().split())
+
 ***Range, Len, Dictionary, Args
 
 >>> range(10)
@@ -57,3 +59,22 @@ romanNumerals['L'] = 50 #adds to the dictionary
 >>> del party['second']
 >>> party
 {'first': {'Gengar': 'ghost'}}
+
+***File IO***
+
+list_of_words = len(fp.read().split()) #find number of words in a list
+
+BEFORE YOU APPEND TO A LIST YOU MUST MAKE A BLANK LIST index 3
+
+Challenge: Using the file school_prompt.txt, assign the third word of every line to a list called three.
+three = []
+with open('school_prompt.txt') as fp:
+      for line in fp:
+            three.append(line.split()[2])
+
+Challenge: Create a list called emotions that contains the first word of every line in emotion_words.txt.
+emotions = []
+with open('emotion_words.txt') as fp:
+      for line in fp:
+            emotions.append(line.split()[0])
+
