@@ -146,3 +146,6 @@ def century(year):  #Given a year, return the century it is in.
 def even_or_odd(number):  #Even or Odd
 	return 'Odd' if number % 2 else 'Even'
 
+def lovefunc( flower1, flower2 ): #flower petal
+    return (flower1+flower2)%2
+
