@@ -195,3 +195,7 @@ def name_value(my_list): #abc
               subtotal += ord(c) - ord('a') + 1
       result.append(subtotal*(i+1))
   return result
+
+def max_multiple(divisor, bound):
+    return bound // divisor * divisor
+
