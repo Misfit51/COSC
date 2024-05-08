@@ -201,3 +201,10 @@ def name_value(my_list): #abc
 def max_multiple(divisor, bound):
     return bound // divisor * divisor
 
+def first_n_multiples(x, n): # Create a function with two arguments that will return an array of the first n multiples of x
+    multiples = []
+    for i in range(1, n+1):
+        multiples.append(x * i)
+    return multiples
+
+
