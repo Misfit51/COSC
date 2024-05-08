@@ -239,3 +239,15 @@ def to_day_of_year(date): #given a date, what day of the year is it, accounting 
 def filter_list(l): #create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out ***isinstance(object, type)***
     return [x for x  in l if isinstance(x, int)]
 
+def Descending_Order(num): #Sort numbers in decending order
+    return int("".join(sorted(str(num), reverse=True)))
+
+import string 	#DNA
+def DNA_strand(dna):
+    return dna.translate(string.maketrans("ATCG","TAGC"))
+    # Python 3.4 solution || you don't need to import anything :)
+    # return dna.translate(str.maketrans("ATCG","TAGC"))
+
+pairs = {'A':'T','T':'A','C':'G','G':'C'}	 #DNA
+def DNA_strand(dna):
+    return ''.join([pairs[x] for x in dna])
