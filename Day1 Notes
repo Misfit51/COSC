@@ -149,3 +149,24 @@ def even_or_odd(number):  #Even or Odd
 def lovefunc( flower1, flower2 ): #flower petal
     return (flower1+flower2)%2
 
+def make_negative( number ): #make negative
+    if number < 0:
+        return(number)
+    else:
+        return(-number)
+
+def set_alarm(employed, vacation): #Truth Table
+    return employed==True and vacation==False
+
+def paperwork(n, m):	
+    if m<0 or n<0:
+        return 0
+    else:
+        return n*m
+
+def positive_sum(arr): #given an array of numbers, find the sum of all even numbers
+    return sum(x for x in arr if x > 0)
+
+def feast(beast, dish): #beast feast
+    return beast[0]==dish[0] and dish[-1]==beast[-1]
+
