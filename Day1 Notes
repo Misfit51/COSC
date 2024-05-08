@@ -113,3 +113,36 @@ print(('.'.join(email.split('@'))).split('.'))
 
 def string_to_array(string):
     return string.split(" ")
+
+def grow(arr):  #For multiplying every piece of an array
+	product = 1
+	for i in arr:
+		product *= i
+	return product
+
+def boolean_to_string(b): #Implement a function which convert the given boolean value into its string representation.
+    return str(b)
+
+def reverseseq(n): #Build a function that returns an array of integers from n to 1 where n>0
+    return list(range(n, 0, -1))
+
+def digitize(n): #Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+    return [int(x) for x in str(n)[::-1]]
+
+def bmi(weight, height):  #
+    bmi = weight / height ** 2
+    if bmi <= 18.5:
+        return "Underweight"
+    elif bmi <= 25:
+        return "Normal"
+    elif bmi <= 30:
+        return "Overweight"
+    else:
+        return "Obese"
+
+def century(year):  #Given a year, return the century it is in.
+    return (year + 99) // 100
+
+def even_or_odd(number):  #Even or Odd
+	return 'Odd' if number % 2 else 'Even'
+
