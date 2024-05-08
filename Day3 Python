@@ -1,1 +1,59 @@
 ***Range, Len, Dictionary, Args
+
+>>> range(10)
+range(0, 10)
+>>> list(range(10))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> list(range(-10,10))
+[-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+for index in range(len(hobbits)): #give me the first index position of each list
+  if index == 1:
+    print(hobbits[index])
+                            #prints index position (1) 
+n = 2
+def function(num,race):
+  for index in range(len(hobbits))
+
+***Slicing***
+
+>>> ten = list(range(1,11))
+>>> ten[0]
+1
+>>> ten[-1]
+10
+>>> ten[0::]
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> ten[0:1:]
+[1]
+#[start:stop:step]
+
+#ordinal
+>>> ord('a')
+97
+>>> ord('b')
+98
+>>> chr(97)
+'a'
+>>> ord('A')
+65
+
+
+***Dictionaries***
+
+romanNumerals['L'] = 50 #adds to the dictionary
+
+
+>>> party = {'first':{'Gengar':'ghost'}}
+>>> party
+{'first': {'Gengar': 'ghost'}}
+>>> party['first']
+{'Gengar': 'ghost'}
+>>> party['first']['Gengar']
+'ghost'
+>>> party['second'] = {'Pidgey':'normal'}
+>>> party
+{'first': {'Gengar': 'ghost'}, 'second': {'Pidgey': 'normal'}}
+>>> del party['second']
+>>> party
+{'first': {'Gengar': 'ghost'}}
