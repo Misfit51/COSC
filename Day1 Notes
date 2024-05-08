@@ -214,3 +214,28 @@ def rps(p1, p2): #Rock paper scissors
     if beats[p2] == p1:
         return "Player 2 won!"
     return "Draw!"
+
+def maps(a):  #Given an array of integers, return a new array with each value doubled
+    b = []
+    for i in a:
+        b.append(i + i)
+    return b
+
+def to_day_of_year(date): #given a date, what day of the year is it, accounting for leap year
+    # Define the number of days in each month, accounting for leap years
+    days_in_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    day, month, year = date
+
+    # Check if it's a leap year and update February's days
+    if ((year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)):
+        days_in_month[2] = 29
+
+    # Calculate the day of the year
+    day_of_year = sum(days_in_month[:month]) + day
+
+    return day_of_year
+
+def filter_list(l): #create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out ***isinstance(object, type)***
+    return [x for x  in l if isinstance(x, int)]
+
