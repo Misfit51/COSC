@@ -182,3 +182,6 @@ def basic_op(operator, value1, value2):
         return value1/value2
     if operator=='*':
         return value1*value2
+
+def longest(a1, a2): #sorting two number lists
+    return "".join(sorted(set(a1 + a2)))
