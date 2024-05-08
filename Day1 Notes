@@ -173,3 +173,12 @@ def feast(beast, dish): #beast feast
 def lost_sheep(friday,saturday,total): #adding arrays
     return total-(sum(friday)+sum(saturday))
 
+def basic_op(operator, value1, value2):
+    if operator=='+':
+        return value1+value2
+    if operator=='-':
+        return value1-value2
+    if operator=='/':
+        return value1/value2
+    if operator=='*':
+        return value1*value2
