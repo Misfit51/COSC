@@ -185,3 +185,13 @@ def basic_op(operator, value1, value2):
 
 def longest(a1, a2): #sorting two number lists
     return "".join(sorted(set(a1 + a2)))
+
+def name_value(my_list): #abc 
+  result = []
+  for i in range(len(my_list)):
+      subtotal = 0
+      for c in my_list[i]:
+          if(c != ' '):
+              subtotal += ord(c) - ord('a') + 1
+      result.append(subtotal*(i+1))
+  return result
