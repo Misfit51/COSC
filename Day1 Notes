@@ -170,3 +170,6 @@ def positive_sum(arr): #given an array of numbers, find the sum of all even numb
 def feast(beast, dish): #beast feast
     return beast[0]==dish[0] and dish[-1]==beast[-1]
 
+def lost_sheep(friday,saturday,total): #adding arrays
+    return total-(sum(friday)+sum(saturday))
+
