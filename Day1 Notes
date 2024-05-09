@@ -285,3 +285,10 @@ def fake_bin(x): #Given a string of digits, you should replace any digit below 5
         else:
             result += '1'
     return result
+
+def invert(lst):								#invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+	return [n * -1 for n in lst] if len(lst) > 0 else []			#invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+										#invert([]) == []
+
+
+
