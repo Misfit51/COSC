@@ -27,7 +27,7 @@ def q3(lst0, lst1):
     given [3,4,9] and [8,1,5] the returned list should be [9,8,5,4,3,1].
     The returned list may contain duplicates.
     '''
-    combined_list = list1 + list2
+    combined_list = lst0 + lst1
     sorted_list = sorted(combined_list, reverse=True)
     return sorted_list
 
