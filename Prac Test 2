@@ -18,7 +18,7 @@ def q2(n):
     commas seperating groups of 3 digits. For example, given 65535
     the returned string should be '65,535'.
     '''
-    pass
+    return '{:,}'.format(n)
 
 def q3(lst0, lst1):
     '''
@@ -36,7 +36,13 @@ def q4(s1,s2,s3):
     Given 3 scores in the range [0-100] inclusive, return 'GO' if
     the average score is greater than 50. Otherwise return 'NOGO'.
     '''
-    pass
+    scores = s1 + s2 + s3
+    total = sum(scores)
+    average = total / len(scores)
+    if average > 50:
+        return 'GO'
+    else:
+        return 'NOGO'
 
 def q5(integer, limit):
     '''
@@ -45,14 +51,23 @@ def q5(integer, limit):
     limit==30, the returned list should be [0,6,12,18,24,30]. Note, 0 is
     a multiple of any integer except 0 itself.
     '''
-    pass
+    multiples = []
+    for i in range(0, limit + 1, integer):
+        if i % 2 == 0:
+            multiples.append(i)
+    return multiples
 
-def q6(f0, f1):
+def q6(file1, file2):
     '''
     Given two filenames, return a list whose elements consist of line numbers
     for which the two files differ. The first line is considered line 0.
     '''
-    pass
+    diff_lines = []
+    with open(file1, 'r') as f1, open(file2, 'r') as f2:
+        for line_num, (line1, line2) in enumerate(zip(f1, f2)):
+            if line1.strip() != line2.strip():
+                diff_lines.append(line_num)
+    return diff_lines
 
 def q7(lst):
     '''
@@ -60,16 +75,29 @@ def q7(lst):
     For example, if given [5,7,9,1,3,7,9,5], the returned value should
     be 7.
     '''
-    pass
+    seen = set()
+    for num in lst:
+        if num in seen:
+            return num
+        seen.add(num)
+    return None  
 
-def q8(strng):
+def q8(sentence):
     '''
     Given a sentence as a string with words being separated by a single space,
     return the length of the shortest word.
     '''
-    pass
+  words = sentence.split()
+  if not words:
+    return 0
+  shortest_word_length = len(words[0])
+  for word in words[1:]:
+    shortest_word_length = min(shortest_word_length, len(word))
 
-def q9(strng):
+  return shortest_word_length
+
+
+def q9(string):
     '''
     Given an alphanumeric string, return the character whose ascii value
     is that of the integer represenation of all of the digits in the string
@@ -77,13 +105,21 @@ def q9(strng):
     'hell9oworld7', the returned character should be 'a' which has
     the ascii value of 97.
     '''
-    pass
+  digits = ''.join(filter(str.isdigit, s))
+    if digits:
+        concatenated_number = int(digits)
+        return chr(concatenated_number)
+    else:
+        return None
 
-def q10(arr):
+def q10(numbers):
     '''
     Given a list of positive integers sorted in ascending order, return
     the first non-consecutive value. If all values are consecutive, return
     None. For example, given [1,2,3,4,6,7], the returned value should be 6. 
     '''
-    pass
+    for i in range(1, len(numbers)):
+        if numbers[i] != numbers[i - 1] + 1:
+            return numbers[i]
+    return None
 
