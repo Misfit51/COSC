@@ -64,14 +64,19 @@ def q6(catalog, order):
     How the above result was computed:
     (289.99 * 5) + (363.50 * 3)
     '''
-    pass
+    total = 0
+    for i in order:
+        total += catalog[i[0]]*i[1]
+    return total
 
 def q7(filename):
     '''
     Given a filename, open the file and return the length of the first line 
     in the file excluding the line terminator.
     '''
-    pass
+    with open(filename) as fp:
+        return (len(fp.readline())-1)
+    
 
 def q8(filename,lst):
     '''
@@ -80,7 +85,13 @@ def q8(filename,lst):
     the list. If "stop" is not found in the list, write the entire list to 
     the file on separate lines.
     '''
-    pass
+    with open(filename, 'w') as fp:
+        for item in lst:
+            if item.upper() == 'STOP':
+                break
+            else:
+                fp.write('{}\n'.format(item))
+
 
 def q9(miltime):
     '''
@@ -91,7 +102,14 @@ def q9(miltime):
     1600-2059 "Good Evening"
     2100-0259 "Good Night"
     '''
-    pass
+    if miltime >= 301 and miltime < 1200:
+        return "Good Morning"
+    elif miltime >= 1200 and miltime < 1600:
+        return "Good Afternoon"
+    elif miltime >= 1600 and miltime < 2100:
+        return "Good Evening"
+    else:
+        return "Good Night"
     
 def q10(numlist):
     '''
@@ -99,4 +117,15 @@ def q10(numlist):
     numbers in the list are NOT negative. If any numbers in the list are
     negative, return False.
     '''
-    pass
+    for i in (numlist):
+        if i < 0:
+             return False
+         else:
+             return True
+
+
+
+
+
+    with open(file1 ,'r') as outfile:
+        with open(file2,'w') as infile:
