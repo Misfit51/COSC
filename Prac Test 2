@@ -8,9 +8,9 @@ def q1(sentence):
     'it is accepted as a masterpiece on strategy', the returned
     string should be 'strategy on masterpiece a as accepted is it'.
     '''
-    
-    slice [-1::-1]
-    ''.join(sentace)
+    rev = sentence.split(' ')
+    rev[-1::-1]
+    return ' '.join(rev)
 
 def q2(n):
     '''
