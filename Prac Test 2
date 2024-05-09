@@ -8,7 +8,9 @@ def q1(sentence):
     'it is accepted as a masterpiece on strategy', the returned
     string should be 'strategy on masterpiece a as accepted is it'.
     '''
-    pass
+    
+    slice [-1::-1]
+    ''.join(sentace)
 
 def q2(n):
     '''
