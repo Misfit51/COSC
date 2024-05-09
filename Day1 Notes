@@ -265,3 +265,13 @@ def alphabet_position(text): #Replace alphabet with numbers
             index=a2.index(i)
             new.append(n[index])            
     return ' '.join(new)
+
+
+def number(bus_stops):	#Number of ppl on the bus
+    sum = 0
+    ppl = 0
+    for item in bus_stops:
+        sum = item[0]-item[1]
+        ppl += sum
+        
+    return ppl
