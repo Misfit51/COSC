@@ -27,7 +27,7 @@ def q4(strng):
     Given an input string, return a list containing the ordinal numbers of 
     each character in the string in the order found in the input string.
     '''
-    lst - []
+    lst = []
     for i in list(strng):
         lst.append(ord(i))
     return lst
