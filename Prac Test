@@ -37,7 +37,7 @@ def q5(strng):
     Given an input string, return a tuple with each element in the tuple
     containing a single word from the input string in order.
     '''
-    pass
+    return tuple(strng.split())
 
 def q6(catalog, order):
     '''
