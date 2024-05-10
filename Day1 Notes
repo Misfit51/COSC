@@ -293,3 +293,5 @@ def invert(lst):								#invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
 def getCount(inputStr): #Count the number of vowels in a string
     return sum(1 for let in inputStr if let in "aeiouAEIOU")
 
+def opposite(lst): # find its opposite
+    return lst * -1
