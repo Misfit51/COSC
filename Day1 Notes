@@ -290,5 +290,6 @@ def invert(lst):								#invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
 	return [n * -1 for n in lst] if len(lst) > 0 else []			#invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
 										#invert([]) == []
 
-
+def getCount(inputStr): #Count the number of vowels in a string
+    return sum(1 for let in inputStr if let in "aeiouAEIOU")
 
