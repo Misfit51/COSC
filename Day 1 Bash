@@ -49,5 +49,5 @@ find $HOME/1123 -name "*.txt" -not -name "*~*" -exec cp {} $HOME/CUT \;
 #Using ONLY the find command, find all empty files/directories in directory /var and print out ONLY the filename (not absolute path), and the inode number, separated by newlines.
 find /var -empty -printf "%i %f\n"
 #Using ONLY the find command, find all files on the system with inode 4026532575 and print only the filename to the screen
-find -inum 4026532575 -printf "%f\n"
+find -inum 4026532575 -printf "%f\n" 2>/dev/null
 
