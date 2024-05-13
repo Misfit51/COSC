@@ -1,1 +1,27 @@
-https://cted.cybbh.io/tech-college/pns/public/pns/latest/guides/bash_sg.html
+Handbook: https://cted.cybbh.io/tech-college/pns/public/pns/latest/guides/bash_sg.html
+
+touch -t yymmddhhmm.ss
+
+mkdir -p #makes nested directory (p for parent)
+
+umask
+
+rm -r or -rf
+
+w, who, whoami
+
+tar -czf
+
+locate find | 
+whereis 
+
+#VERY FUCKING IMPORTANT
+find -name #case sensitive
+find -iname #case insensitive
+find -inum
+find -size 
+find -gid
+find -maxdepth
+find / -type s -exec echo {} 2>/dev/null \; | grep domain*   #type s (sockets)
+#time = days. c time = change, a time= access, m time= modified
+find -cmin -30
