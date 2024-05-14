@@ -1,0 +1,23 @@
+AWK
+| sort -n (numericaly) -r (reverse)
+#When using sort, columns is -k 
+ps aux | sort -k 2 -nr (sorting by columns, 2nd field, numericly in reverse)
+| uniq (removes duplicates)
+
+#Write a basic bash script that greps ONLY the IP addresses in the text file provided (named StoryHiddenIPs in the current directory); sort them uniquely by number of times they appear.
+grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" StoryHiddenIPs | sort | uniq -c | sort -nr
+#Using ONLY the awk command, write a BASH one-liner script that extracts ONLY the names of all the system and user accounts that are not UIDs 0-3. 
+#Only display those that use /bin/bash as their default shell. 
+#The input file is named $HOME/passwd and is located in the current directory. 
+#Output the results to a file called $HOME/SED/names.txt
+awk -F: '($NF == "/bin/bash" && $3 > 3) {print $1}' $HOME/passwd > $HOME/SED/names.txt
+
+
+#!/bin/bash
+
+if [[ -f /etc/passwd ]]; then
+  echo "/etc/passwd file exists"
+elif [[ ! -f /etc/passwd ]]; then
+  echo "/etc/passwd file doesnt exist"
+fi
+
