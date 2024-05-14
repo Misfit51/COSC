@@ -20,7 +20,7 @@ To read more on Brace Expansion, go to the following resource:
 mkdir 11{23,34,45,56}
 
 
-
+*******************************************************************************************
 
 
 As we learned, the following example would create five files with one command.
@@ -50,8 +50,7 @@ Files to create:
 
 touch $HOME/1123/{1..5}.txt $HOME/1123/{6~,7~,8~,9~}.txt
 
-
-
+***************************************************************************************
 
 
 Using the find command, list all files in $HOME/1123 that end in .txt.
@@ -69,20 +68,7 @@ To read more on Quoting, go to the following resource:
 
 find $HOME/1123/*.txt
 
-
-
-
-
-List all files in $HOME/1123 that end in .txt. Omit the files containing a tilde (~) character.
-
-While this activity can be accomplished with only find, it can also be combined with grep as well.
-
-find $HOME/1123/*.txt | grep -v "~"
-
-
-
-
-
+*****************************************************************************************************************
 
 
 List all files in $HOME/1123 that end in .txt. Omit the files containing a tilde (~) character.
@@ -92,8 +78,16 @@ While this activity can be accomplished with only find, it can also be combined 
 find $HOME/1123/*.txt | grep -v "~"
 
 
+*****************************************************************************************************************
 
 
+List all files in $HOME/1123 that end in .txt. Omit the files containing a tilde (~) character.
+
+While this activity can be accomplished with only find, it can also be combined with grep as well.
+
+find $HOME/1123/*.txt | grep -v "~"
+
+********************************************************************************************************************
 
 
 Copy all files in the $HOME/1123 directory, that end in ".txt", and omit files containing a tilde "~" character, to directory $HOME/CUT.
@@ -106,11 +100,7 @@ find $HOME/1123 -name "*.txt" -not -name "*~*" -exec cp {} $HOME/CUT \;
 
 find $HOME/1123 -name "*.txt" -not -name "*~*" -exec cp {} $HOME/CUT \;
 
-
-
-
-
-
+***************************************************************************************************************************
 
 
 Using ONLY the find command, find all empty files/directories in directory /var and print out ONLY the filename (not absolute path), and the inode number, separated by newlines.
@@ -126,10 +116,7 @@ Example Output
 
 find /var -empty -printf "%i %f\n"
 
-
-
-
-
+*********************************************************************************************************************************
 
 
 Using ONLY the find command, find all files on the system with inode 4026532575 and print only the filename to the screen, not the absolute path to the file, separating each filename with a newline. Ensure unneeded output is not visible.
@@ -139,11 +126,7 @@ Tip: The above inode is specific to this CTFd question and might not be in use o
 
 find -inum 4026532575
 
-
-
-
-
-
+************************************************************************************************************************************
 
 
     Using only the ls -l and cut Commands, write a BASH script that shows all filenames with extensions ie: 1.txt, etc., but no directories, in $HOME/CUT.
@@ -164,10 +147,7 @@ To read more on Simple Command Expansion, go to the following resource:
 
 ls -l $HOME/CUT | cut -d. -f1- -s | cut -d" " -f9 > $HOME/CUT/names
 
-
-
-
-
+**********************************************************************************************************************************
 
 
 Write a basic bash script that greps ONLY the IP addresses in the text file provided (named StoryHiddenIPs in the current directory); sort them uniquely by number of times they appear.
@@ -194,13 +174,7 @@ Note: The basics of regular expressions are assumed knowledge for this module, a
 
 grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" StoryHiddenIPs | sort | uniq -c | sort -nr
 
-
-
-
-
-
-
-
+******************************************************************************************************************
 
 
     Using ONLY the awk command, write a BASH one-liner script that extracts ONLY the names of all the system and user accounts that are not UIDs 0-3.
@@ -215,12 +189,7 @@ awk -F: '($1 == "root") {print $0}' /etc/passwd
 
 awk -F: '($NF == "/bin/bash" && $3 > 3) {print $1}' $HOME/passwd > $HOME/SED/names.txt
 
-
-
-
-
-
-
+*********************************************************************************************************
 
 
     Find all dmesg kernel messages that contain CPU or BIOS (uppercase) in the string, but not usable or reserved (case-insensitive)
@@ -234,11 +203,7 @@ Tip: As you may have noticed, when using grep you can simulate a logical AND by 
 
 dmesg | egrep -iv 'usable|reserved' | egrep 'BIOS|CPU' | cut -c15-1000
 
-
-
-
-
-
+*********************************************************************************************************************
 
 
     Write a Bash script using "Command Substitution" to replace all passwords, using openssl, from the file $HOME/PASS/shadow.txt with the MD5 encrypted password: Password1234, with salt: bad4u
@@ -279,16 +244,10 @@ To read more on the Shadow file format, go to the following resource:
 
 
 
-
-
 A=$(openssl passwd -1 -salt bad4u Password1234) 
 awk -F: -v "awk_var=$A" 'BEGIN {OFS=":"} {$2=awk_var} {print $0}' $HOME/PASS/shadow.txt
 
-
-
-
-
-
+**************************************************************************************************************************
 
 
     Using ONLY sed, write all lines from $HOME/passwd into $HOME/PASS/passwd.txt that do not end with either /bin/sh or /bin/false.
