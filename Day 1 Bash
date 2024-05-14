@@ -53,6 +53,7 @@ find -inum 4026532575 -printf "%f\n" 2>/dev/null
 
 Cut commands
 -s not like as grep -v
+ls -l | cut -d " " -f 1   #Only show permissions field
 
 #Using only the ls -l and cut Commands, write a BASH script that shows all filenames with extensions ie: 1.txt, etc., but no directories, in $HOME/CUT.
 ls -l $HOME/CUT | cut -d. -f1- -s | cut -d" " -f9 > $HOME/CUT/names
