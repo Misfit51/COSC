@@ -34,3 +34,13 @@ else
   echo "41 is NOT 42";
 fi
 
+#!/bin/bash
+A=$(cat tail /etc/passwd)
+echo $A
+
+find -exec {} / ; +
+tar -czf
+grep
+maxdepth
+awk
+sed
