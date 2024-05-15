@@ -541,9 +541,9 @@ Files w/ OCTAL Perm Values 0-640:
 find /etc -type f -exec stat -c '%a' {} \; > ./A 2>/dev/null
 for x in $(cat ./A) ; do
     if [[ $x -le 640 ]]; then
-        echo \"$x\" >> ./less
+        echo $x >> ./less
     elif [[ $x -ge 642 ]]; then
-        echo \'$x\" >> ./more
+        echo $x >> ./more
     fi
 done
 echo 'Files w/ OCTAL Perm Values 642+:'
