@@ -26,3 +26,18 @@ grep -v $match $src > $dst
 pkill
 
 find $dirpath -type f -mtime -1 | sort
+
+
+
+
+study 
+
+grep on symbols, end of line start of line
+^
+tar -czf
+maxdepth
+wc -l
+touch format 
+if else fi
+amin cmin
+
