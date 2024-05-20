@@ -56,4 +56,5 @@ Set-Alias -Name gh -Value Get-Help ***Makes gh the alias for GetHelp
 " " variable
 
 1..5 | ForEach-Object {$PSitem+1}
+
 Get-Process | Group-Object {$-.name.Substring(0,1).ToUpper() | ForEach-Object{($_.name + " ") * 7; "====="; $-.Group}
