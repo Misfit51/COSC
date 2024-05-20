@@ -58,3 +58,10 @@ Set-Alias -Name gh -Value Get-Help ***Makes gh the alias for GetHelp
 1..5 | ForEach-Object {$PSitem+1}
 
 Get-Process | Group-Object {$-.name.Substring(0,1).ToUpper() | ForEach-Object{($_.name + " ") * 7; "====="; $-.Group}
+
+$array = (Get-Random -Minimum -10 -Maximum 1)..(Get-Random -Minimum 1 -Maximum 10)
+
+[array]::reverse($array) ***Previous but in reverse
+
+$array.Length
+$reversed = $array[($array.Length-1)..0]
