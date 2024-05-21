@@ -97,6 +97,7 @@ foreach($oct in ('8.8.8.8' -split '\.')){
 #'8.8.8.8' -split '\.'
 
 'cat','dog' -join " "
-
 'cat'.startswith('')
 'dog'.endswith('')
+
+$empty[3][3][0]
