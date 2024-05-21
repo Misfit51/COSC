@@ -101,3 +101,88 @@ foreach($oct in ('8.8.8.8' -split '\.')){
 'dog'.endswith('')
 
 $empty[3][3][0]
+
+function 
+    "elements provided on the pipeline"
+    Cool-Printer{
+Begin{
+}
+Process{
+}
+End{
+}
+
+
+********************************** Elements provided on a pipeline
+function Cool-Printer{
+process{$_}
+}
+
+1,2,3,4,5
+
+function Get-Sum{
+Begin{$sum=0}
+process{$sum += $_}
+End {$sum}}
+**********************************
+Get-Content
+Add-Content
+***************************
+function bare-bones {
+    Param(Define Parameters)
+    Begin {code}
+    Process {code}
+    End {code}
+    }
+***************************
+
+Get-Process | Where-Object {$_.name -like "*ms*"} | Select-Object -Property ProcessName, Id, WS
+
+do {
+    codeblock
+}while(condition)
+
+$num = 4
+do {
+    $num
+    $num ++
+}while($false)
+
+*******Do while VS Do Until**********
+
+do {
+    codeblock
+}until(condition)
+
+$num = 0
+do {
+    $num
+    $num ++
+}until($num -gt 3)
+*************************************
+
+function Print-Input{
+Write-Output "$input"}
+
+function Print-PSitem{
+Process{Write-Output "$PSItem"}
+}
+
+*************************************
+
+function Print-Input{
+$sum = 0
+foreach($num in $input){
+$num
+$sum += $num}
+$sum
+}
+
+Output:
+1
+2
+3
+6
+***********************************
+
+
