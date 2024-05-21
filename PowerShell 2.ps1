@@ -84,7 +84,8 @@ Get-Process | Where-Object{$_.name -like "*MS*"}
 
 
 
-***join and split***
+**********************-join() and .split()*******************
+
 ***Building block for test answer evaluating IPs***
 
 foreach($oct in ('8.8.8.8' -split '\.')){
