@@ -10,18 +10,26 @@ function q2($arr,$rows,$cols,$key) {
        Return -1 if the key is not found.
     #>
 
-    Return -1
+     foreach($row in $arr){
+        if($row[0] -eq $key){
+            return $row[9] 
+        }
+    }
+    return -1
 }
 function q3 {
     <# In a loop, prompt the user to enter positive integers one at time.
        Stop when the user enters a -1. Return the maximum positive
-       value that was entered."
+       value that was entered."   REMEMBER .length and Get-Content to open files
 	#>
-        $num = [int](Read-Host -Prompt "Enter a positive int")
-        if ($num -lt -0){
-            return $num | Measure-Object -Maximum
-        else
+        $vals = @()
+        do {
+            $val = Read-Host
+            if ([int]$val -ne -1) {
+                $vals += $val
             }
+        }until([int]$val -eq -1)
+        return ($vals | Measure-Object -Maximum).Maximum
 
 }
 function q4($filename,$whichline) {
@@ -30,7 +38,7 @@ function q4($filename,$whichline) {
 	   The first line in the file corresponds to line number 0."
 	#>
         Get-Content $filename | Select-Object -Index $whichline
-
+  	
 }
 function q5($path) {
     <# Return the child items from the given path sorted
@@ -41,13 +49,9 @@ function q5($path) {
 function q6 {
     <# Return the sum of all elements provided on the pipeline
 	#>
-        
-        
-       
-        
-        
-        
-
+        $sum = 0
+        foreach($num in $input){ $sum += $num}
+        return $sum 
 }
 function q7 {
 	<# Return only those commands whose noun is process #>
@@ -67,15 +71,20 @@ function q9($addr) {
 	   addresses where all octets are in the range 0-255 inclusive to
 	   be valid.
 	#>
-      $ipv4 = '(?:[0-9]{1,3}\.){3}[0-9]{1,3}'
+      <#$ipv4 = '(?:[0-9]{1,3}\.){3}[0-9]{1,3}'
       if ($addr -match $ipv4){
         return $true
     }
       else{
         return $false
-    }
-       
-    
+    }#>
+
+    foreach($octet in $addr.split(".")){
+    	if([int]$octet -lt 0 -or [int]$octet -gt 255){
+     		return $false
+       		}
+	}
+       return $true
 }
 function q10 ($filepath,$lasthash) {
     <# Return `$true if the contents of the file given in the
