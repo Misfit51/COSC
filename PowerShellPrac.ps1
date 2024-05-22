@@ -101,7 +101,9 @@ function q10 ($filepath,$lasthash) {
       } 
         
 }
-
+	#CLASS ANSWER
+	$hash = Get-FileHash -Algorithm SHA256 $filepath
+ 	return $hash.hash -ne $lasthash
 
 sussy wussy
 <# 4 #>
