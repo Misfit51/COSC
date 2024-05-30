@@ -1,0 +1,34 @@
+Stack 5 10.50.25.4
+
+http://10.50.22.197:8000/
+RYVA-M-24-503
+
+M24503 password
+
+xfreerdp /u:student /v:10.50.25.4 -dynamic-resolution +glyph-cache +clipboard
+
+https://os.cybbh.io/public/os/latest/index.html
+
+Power shell Profiles – Set persistence AllUsersAllHosts has priority 
+
+
+Windows Registry
+Hierachical database
+Configurations, Instructions on what to do
+
+
+    HKEY_LOCAL_MACHINE (HKLM)
+
+    HKEY_USERS (HKU)
+
+    HKEY_CURRENT_USERS (HKCU)
+
+    HKEY_CURRENT_CONFIG (HKCC)
+
+    HKEY_CLASSES_ROOT (HKCR)
+
+HKLM\SYSTEM\CurrentControlSet\services - Starts with system level permissions, runs in background
+
+Get-WmiObject win32_Useraccount | fl -property name, sid
+
+
