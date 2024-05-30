@@ -29,6 +29,33 @@ Configurations, Instructions on what to do
 
 HKLM\SYSTEM\CurrentControlSet\services - Starts with system level permissions, runs in background
 
-Get-WmiObject win32_Useraccount | fl -property name, sid
+Get-WmiObject win32_Useraccount | fl -property name, sid         #Get name and sid
 
+BASH LINUX
+
+use strings for binaries
+
+Permissions for file AND directories
+read                     read
+write                    write
+execute                  execute
+                        ***LS THE DIRECTORY***
+
+Sticky Bit (T)
+-Only the owner of the file can delete it
+
+SUID SGID (S)
+-Running as the owner
+
+Awk
+
+***To Unencrypt***
+unzip the file
+openssl enc -d -aes-128-cbc -salt -in cipher -out decrypted -k AES128Key
+cat decrypted
+
+
+awk -F: '{print $5}' /etc/passwd    #find the 5th field (comments) in /etc/passwd
+
+find /home/*/ -type f ! -name *vdi* -exec wc -l {} + | sort -rn     #Print lines in a file
 
