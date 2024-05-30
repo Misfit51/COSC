@@ -59,3 +59,4 @@ awk -F: '{print $5}' /etc/passwd    #find the 5th field (comments) in /etc/passw
 
 find /home/*/ -type f ! -name *vdi* -exec wc -l {} + | sort -rn     #Print lines in a file
 
+awk '{ for (i=1; i<=NF; i++) if ($i -ge 420 && $i -le 1337) { print; next } }' filename | sha512sum     
