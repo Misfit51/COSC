@@ -12,7 +12,7 @@ https://os.cybbh.io/public/os/latest/index.html
 Power shell Profiles – Set persistence AllUsersAllHosts has priority 
 
 
-Windows Registry
+***Windows Registry***
 Hierachical database
 Configurations, Instructions on what to do
 
@@ -31,7 +31,7 @@ HKLM\SYSTEM\CurrentControlSet\services - Starts with system level permissions, r
 
 Get-WmiObject win32_Useraccount | fl -property name, sid         #Get name and sid
 
-BASH LINUX
+***BASH LINUX***
 
 use strings for binaries
 
@@ -70,4 +70,50 @@ getent passwd | awk -F: '$7 != "/usr/sbin/nologin" {print $1 ":" $7}' | sort -u 
 PERMISSIONS
 Owner    Group    Other
 R - 4     W - 2     X - 1
+
+
+
+
+***Windows Boot Process***
+
+Rootkits, Bootkits
+BIOS MBR (Master boot record)
+UEFI Boot Manager
+
+Get-Content C:\Windows\Panther\Setupact.log | Select-String "Detected boot environment"     #Shows your boot manager
+
+smss.exe - Starts the kernel and user mode sub systems
+
+4.2.1 User Subsystem Session 0
+
+Session 0 is for security and high privilege processes such as services. They are run in a separate session to isolate them from individual user’s processes.
+
+    smss.exe installs the Win32 subsystem kernel and user mode components (win32k.sys - kernel; winsrv.dll - user; and csrss.exe - user.)
+
+        csrss.exe - The Client/Server Runtime Subsystem supports process / thread creation and management.
+
+        wininit.exe marks itself as critical, initializes the Windows temp directory, loads the rest of the registry, and starts user mode scheduling. It also installs programs that require a reboot to finish the install process. It also starts:
+
+            lsm.exe - the Local Session Manager (LSM) handles all sessions of a system (both remote desktop sessions and local system sessions.)
+
+            lsass.exe - the Local Security Authority Subsystem (LSASS) provides user authentication services, manages the local security policy, and generates access tokens.
+
+            services.exe the Services Control Manager (SCM) loads AutoStart services, using LSASS to authenticate if they run as something other than System.
+
+        wininit.exe then waits for system shutdown to undo everything it started.
+
+
+
+By why does any of this matter?
+
+    Processes in User Subsystem Session 0 are created using the highest permissions available to a User in Windows - SYSTEM
+
+        System has more permissions than an administrative account
+
+        represents the Windows Operating System
+
+        *Can be tricked into executing malicious commands via services
+
+reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services | findstr Spooler     #Showing the Service Control Manager registry key
+
 
