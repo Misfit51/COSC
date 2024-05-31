@@ -60,3 +60,14 @@ awk -F: '{print $5}' /etc/passwd    #find the 5th field (comments) in /etc/passw
 find /home/*/ -type f ! -name *vdi* -exec wc -l {} + | sort -rn     #Print lines in a file
 
 awk '{ for (i=1; i<=NF; i++) if ($i -ge 420 && $i -le 1337) { print; next } }' filename | sha512sum     
+
+getent group <group_name>       #Get members of a group
+
+find . -type d -name ' '  2>/dev/null   #Find hidden file or directory and removes errors
+
+getent passwd | awk -F: '$7 != "/usr/sbin/nologin" {print $1 ":" $7}' | sort -u     #Filtering out passwd results with nologin
+
+PERMISSIONS
+Owner    Group    Other
+R - 4     W - 2     X - 1
+
