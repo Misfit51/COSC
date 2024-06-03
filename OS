@@ -116,4 +116,14 @@ By why does any of this matter?
 
 reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services | findstr Spooler     #Showing the Service Control Manager registry key
 
+***Linux Boot Process***
+
+The /etc/environment file sets Global Variables     #Persistance
+
+/etc/profile is a script that executes whenever a user logs into an interactive shell on Linux     #Persistance
+
+/etc/inittab    #Is the location os SysV
+
+dd if=/home/bombadil/mbroken of=/tmp/pridemonth bs=1 count=16 skip=446     
+md5sum pridemonth     #output file and get md5sum
 
