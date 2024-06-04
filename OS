@@ -127,3 +127,17 @@ The /etc/environment file sets Global Variables     #Persistance
 dd if=/home/bombadil/mbroken of=/tmp/pridemonth bs=1 count=16 skip=446     
 md5sum pridemonth     #output file and get md5sum
 
+cat /etc/inittab     #shows run level
+
+Run levels 2,3,4,5 start the daemon allowing for ssh connection
+
+/sbin is where symbollic links are found
+
+/lib/systemd/system     #path to default target, confirm with systemctl get-default
+
+less graphical.target     #shows config file for Systemd target
+
+systemctl show --property=Wants --value $(systemctl get-default)     #shows actually recognised dependancies for target
+
+systemctl --type=service | grep log     #Shows logging service on linux device
+
