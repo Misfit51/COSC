@@ -141,3 +141,117 @@ systemctl show --property=Wants --value $(systemctl get-default)     #shows actu
 
 systemctl --type=service | grep log     #Shows logging service on linux device
 
+*** Process Validity ***
+LOOK AT SERVICES FOR PERSISTANCE
+
+Why check DLLs?
+-Are they valid? Did they come from the application?
+
+View an instance of all Win32 (system) services.
+
+    Get-Ciminstance Win32_service | Select Name, Processid, Pathname | more
+
+        Pipe in ft -wrap to see full file name/path
+
+
+
+Display modules/dlls associated to a specific process.
+
+    tasklist /m /fi "IMAGENAME eq chrome.exe"
+
+
+
+Formating options (If no powershell)
+
+     tasklist /fo:{table|list|csv}`
+
+
+
+Filtering for specific string/process
+
+    tasklist /fi "IMAGENAME eq lsass.exe"
+
+
+
+ Q: Which Windows commands let us view information on services?
+
+     In Powershell:
+
+          Get-Ciminstance - Microsoft Reference
+
+           Get-Service - Microsoft Reference
+
+      In Command Prompt:
+
+          net start - Shows currently running services
+
+           sc query - Microsoft Reference
+
+PS
+
+View all services.
+
+    Get-service
+
+
+
+View a defined service, showing all properties in list format.
+
+    get-service ALG | format-list *
+
+
+
+ View only currently running services.
+
+     Get-Service | Where-Object {$_.Status -eq "Running"}
+
+CLI
+
+View Services
+
+    sc query
+
+
+
+View extended information for all services.
+
+    sc queryex type=service
+
+
+
+View extended information for all inactive services.
+
+    sc queryex type=service state=inactive
+
+
+Scheduled tasks 
+PS
+
+View all properties of the first scheduled task.
+
+    Get-ScheduledTask | Select * | select -First 1
+
+CLI
+
+schtasks /query /tn "IchBinBosh" /v /fo list
+
+
+View Network Connections 
+
+PS
+
+Show all Connections in the "Established" state.
+
+    Get-NetTCPConnection -State Established
+
+CLI
+
+Show netstat help and point out the following:
+
+    netstat /?
+
+Displays all TCP/UDP connections with ports in numerical form with PID and executable associated to the connections
+
+    netstat -anob | more
+
+
