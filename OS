@@ -300,3 +300,8 @@ netstat -ano
 
 sudo lsof -i :9999
 
+sudo ls -l /proc/<PID>/exe     #For symbolic link
+
+ps --pid 1469 -lf
+
+
