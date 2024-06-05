@@ -254,4 +254,4 @@ Displays all TCP/UDP connections with ports in numerical form with PID and execu
 
     netstat -anob | more
 
-
+./strings*.exe -accepteula
