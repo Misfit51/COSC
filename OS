@@ -255,3 +255,48 @@ Displays all TCP/UDP connections with ports in numerical form with PID and execu
     netstat -anob | more
 
 ./strings*.exe -accepteula
+
+
+
+***Linux Process Validity***
+
+The cron daemon checks the directories /var/spool/cron, /etc/cron.d and the file /etc/crontab
+
+
+
+    Two types of cron jobs
+
+        System cron jobs
+
+            run as root and rigidly scheduled
+
+            perform system-wide maintenance tasks (Cleaning out /tmp or rotating logs)
+
+            controlled by /etc/crontab
+
+        User cron jobs
+
+            Use 'crontab’ command to create user cron jobs
+
+            stored in /var/spool/cron/crontabs/
+
+IF ACCESS DENIED, LS THE DIRECTORY
+
+List all open files being used by every process.
+
+    sudo lsof | tail -30
+
+List all open files being used by every process.
+
+    sudo lsof | tail -30
+
+ps --ppid <pid#> To find process count
+
+ps -p $(pidof ntpd) -o cmd 
+
+sudo lsof -c cron            /run/crond.pid
+
+netstat -ano
+
+sudo lsof -i :9999
+
