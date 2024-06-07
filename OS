@@ -327,4 +327,6 @@ xpath -e "//*/@addr | //*/@portid" output.xml | md5sum
 
 jq '.' /home/garviel/conn.log | md5sum
 
+cat /home/garviel/conn.log | jq '.["id.orig_h"]' | sort -u | wc -l
+
 
