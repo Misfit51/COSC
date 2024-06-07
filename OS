@@ -323,5 +323,8 @@ Cover your tracks
 log isolation prevents intruders from tampering with logs
 
 xpath -e "//*/@addr/" output.xml
+xpath -e "//*/@addr | //*/@portid" output.xml | md5sum
+
+jq '.' /home/garviel/conn.log | md5sum
 
 
