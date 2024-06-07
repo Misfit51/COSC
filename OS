@@ -329,4 +329,9 @@ jq '.' /home/garviel/conn.log | md5sum
 
 cat /home/garviel/conn.log | jq '.["id.orig_h"]' | sort -u | wc -l
 
+cat /home/garviel/conn.log | jq -c 'select(.["resp_bytes"] > 40)' | wc -l
+
+https://www.scribd.com/document/366260364/Bro-Log-Vars
+https://github.com/threathunternotebook/ZEEK-JQ
+
 
