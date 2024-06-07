@@ -305,3 +305,8 @@ sudo ls -l /proc/<PID>/exe     #For symbolic link
 ps --pid 1469 -lf
 
 
+***Windows Auditing and Logging***
+
+sans persistence poster
+
+(get-eventlog system).message | ft wrap | findstr /i "flag"
