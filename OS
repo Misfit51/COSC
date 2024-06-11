@@ -334,5 +334,5 @@ cat /home/garviel/conn.log | jq -c 'select(.["resp_bytes"] > 40)' | wc -l
 https://www.scribd.com/document/366260364/Bro-Log-Vars
 https://github.com/threathunternotebook/ZEEK-JQ
 
-
+ Get-ADUser -Filter 'EmailAddress -like "*.com"' -Properties "EmailAddress"
 
