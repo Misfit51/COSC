@@ -336,3 +336,9 @@ https://github.com/threathunternotebook/ZEEK-JQ
 
  Get-ADUser -Filter 'EmailAddress -like "*.com"' -Properties "EmailAddress"
 
+Get-ADUser -filter {AllowReversiblePasswordEncryption -eq $True} -Properties "AllowReversiblePasswordEncryption"
+
+ Get-ADUser -filter 'Name -notlike "andy.dwyer"' -Properties PasswordNeverExpires | Where-Object {$_.PasswordNeverEx
+pires -like "True"}
+
+Karen.Nance
