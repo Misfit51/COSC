@@ -341,4 +341,4 @@ Get-ADUser -filter {AllowReversiblePasswordEncryption -eq $True} -Properties "Al
  Get-ADUser -filter 'Name -notlike "andy.dwyer"' -Properties PasswordNeverExpires | Where-Object {$_.PasswordNeverEx
 pires -like "True"}
 
-Karen.Nance
+sc.exe showsid <process> : SID of a process
