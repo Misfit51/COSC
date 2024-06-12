@@ -342,3 +342,6 @@ Get-ADUser -filter {AllowReversiblePasswordEncryption -eq $True} -Properties "Al
 pires -like "True"}
 
 sc.exe showsid <process> : SID of a process
+
+ls -l | awk 'NR>=420 && NR<=1337 { print }' <filename> | sha512sum
+
