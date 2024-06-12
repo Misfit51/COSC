@@ -345,3 +345,7 @@ sc.exe showsid <process> : SID of a process
 
 ls -l | awk 'NR>=420 && NR<=1337 { print }' <filename> | sha512sum
 
+ awk -F "-" '/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/ {print $1}' numbers | nawk '$1 ~ "[02468ACE]$"' ###Filters for unicast, locally and universally adminitered mac addresses
+
+
+
