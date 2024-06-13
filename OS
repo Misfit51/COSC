@@ -349,4 +349,4 @@ ls -l | awk 'NR>=420 && NR<=1337 { print }' <filename> | sha512sum
 
 grep -f Inquisition_Targets guardsmen.txt ###Compare two files
 
-
+systemctl status whatischaos.service
