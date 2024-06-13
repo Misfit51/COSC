@@ -350,3 +350,35 @@ ls -l | awk 'NR>=420 && NR<=1337 { print }' <filename> | sha512sum
 grep -f Inquisition_Targets guardsmen.txt ###Compare two files
 
 systemctl status whatischaos.service
+
+
+***Test Review**
+
+Persistance  
+occours upon reboot vs survives reboot?
+occures upon roboot is in runkey
+tasks survives reboot
+
+Linux
+boot systemd, sysV - Kernel services, sbin init, run conditions, run levels, *profiles* (bashrc), cron
+execute in directory means you can move into it, if not you can still interact (ls -l)
+suid suig sgid stickybit
+daemons are for background processes, also persistance 
+systemctl status
+var/log var/syslog 
+etc/syslog     etc is for config files
+strings for binaries
+High PPID
+Run levels: /etc/inittab
+RC levels
+bash profiles
+
+Windows
+netuse * //sysinternals be in the right dirrectory when running
+autoruns - most useful tool in windows
+Powershell profiles, check all 4
+$HOME
+registry - HKLM local machine, system stuff. HKU for user not logged in. Run vs RunOnce. Services
+If looking for user, need SID
+Current Version, Run, RunOnce, 
+Process validity: sequencial, well known. Spelling. Running not out of System32. High PPID, alternate data streams, Services, schtasks, two of same command or process
