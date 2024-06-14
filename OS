@@ -378,7 +378,11 @@ netuse * //sysinternals be in the right dirrectory when running
 autoruns - most useful tool in windows
 Powershell profiles, check all 4
 $HOME
-registry - HKLM local machine, system stuff. HKU for user not logged in. Run vs RunOnce. Services
+registry - HKLM local machine, system. HKU for user not logged in. Run vs RunOnce. Services
 If looking for user, need SID
 Current Version, Run, RunOnce, 
 Process validity: sequencial, well known. Spelling. Running not out of System32. High PPID, alternate data streams, Services, schtasks, two of same command or process
+
+WINDOWS: 10.50.30.162 
+LINUX: 10.50.36.251    
+
