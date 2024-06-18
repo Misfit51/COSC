@@ -60,7 +60,106 @@ Routers   ###L3
 
 
 ###Data Link Sub-Layers
-MAC (Medium Access Control)
+MAC (Medium Access Control) 
 LLC (Logical Link Control)
+
+Encapsulation
+
+###Switch Operation
+Build Mac-Address (CAM) Table
+Forwarding Frames
+
+###Switching Modes
+Cut-Through
+Fragment-Free
+Store-and-Forward
+
+###CAM Table Overflow Attack
+Send Frames with bogus sourse MAC address to switch
+Cause switch to fill table with bogus addresses
+Switch will not be able to learn new (valid) MAC addresses
+
+###Describe MAC Addressing
+Length: 48-bit | 6 byte | 12 Hex
+Format:
+ Windows: 01-23-45-12-34-56
+ Unix/Linux: 01:23:45:12:34:56
+ Cisco: 1234.1234.1234
+
+###MAC Address Types
+Unicast
+Multicast
+Broadcast
+
+###Data Link frame headers
+Destination (Only checked by cut through)
+Source
+Ethertype
+Payload / Data / SDU
+CRC / FCS
+
+###VLAN
+Logically seperate your network
+
+###Trunk Link
+Connects two switches (then you need STP)
+
+###VLAN TYPES
+Default - VLAN 1
+Data - User traffic
+Voice - VOIP traffic
+Management - Switch and router managment
+Native - Untagged switch and router traffic
+
+802.1Q Header
+802.1AD Header ###Double tagging, if a ISP wants to throw another tag on the header, 88 A8
+
+###VLAN Hopping Attack
+Switch Spoofing
+Single Tagging
+Double Tagging
+SCAPY Example Code
+
+###Address Resolution Protocol (ARP)
+IP to MAC OR MAC to IP
+###Types
+ARP (OP 1 and 2)
+RARP (OP 3 and 4)
+Proxy ARP (OP 2)  ###Answers on a different network
+Gratuitous ARP (OP 2)  ###Like a broadcast
+
+###ARP CACHE
+All resolved MAC to IP resolutions
+
+###Man-In-The-Middle (MITM) With ARP
+Poison ARP Cache with:
+ Gratuitous ARP
+ Proxy ARP
+SCAPY Example Code
+
+###VLAN Trunking Protocol (VTP)
+Cisco Proprietory 
+###VTP Vulnerablity 
+
+###Dynamic Trunking Protocol (DTP)
+
+###CDP, FDP, and LLDP
+Cisco Discovery Protocol (CDP)
+Foundry Discovery Protocol (FDP)
+Link Layer Discovery Protocol (LLDP)
+###Vulnerabilities
+Clear Text (CDP Neighbor)
+Enabled by default
+
+###Spanning Tree Protocol (STP)
+Prevents looping
+1. Elect Root Bridge
+2. Identify the Root ports on non-root bridge
+3. Identify the Designated port for each segment
+
+
+
+
+
 
 
