@@ -38,3 +38,29 @@ Mesh   ###Full and Partial
 Wireless   ###
 Hierarchial   ###
 
+###Devices
+Hubs   ###L1
+Repeaters   ###
+Switches   ###L2
+Routers   ###L3
+
+###Ethernet Timing (Bit-Time)
+ Speed 	   Bit-time
+
+10 Mbps  | 100ns
+
+100 Mbps | 10ns
+
+1 Gbps   | 1ns
+
+10 Gbps  | .1ns
+
+100 Gbps | .01ns
+
+
+
+###Data Link Sub-Layers
+MAC (Medium Access Control)
+LLC (Logical Link Control)
+
+
