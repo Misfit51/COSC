@@ -157,8 +157,157 @@ Prevents looping
 2. Identify the Root ports on non-root bridge
 3. Identify the Designated port for each segment
 
+###Spanning Tree Attack
+Crafted Bridge Protocol Data Units (BPDU)
+Used to perform a DOS or MitM
+
+###Port Security Modes
+Shutdown (default)
+Protect
+Restrict
+
+Restrict unauthorized access
+Limit MAC address learned
+prevents CAM attack
+
+###Port Security Vulnerabilities
+MAC Spoofing
+
+###Layer 2 Attack Mitigation Techniques
+Shutdown unused ports
+Enable Port Security
+IP Source Guard
+Manually assign STP Root
+BPDU Guard
+DHCP Snooping
+802.1x
+Dynamic ARP inspection (DAI)
+Static CAM entries
+Static ARP entries
+Disable DTP negotiations
+Manually assign Access/Trunk ports
 
 
+
+
+###NETWORK LAYER
+Addressing Schemes for Network (Logical Addressing)
+
+###Internet Protocol Versions
+IPv4 (ARPANET 1982)
+ Classful
+ Classless subnetting (CIDR)
+ NAT
+IPv6 (Standardized 2017)
+
+###Classful IPv4 Addressing and subnetting
+Class A (0 to 127)
+Class B (128 to 191)
+Class C 
+Class D
+Class E
+
+###Subnetting
+IP addresses
+ Network Portion
+ Host Portion
+Practoce of borrowing host bits for subnetting bits
+
+###IPv4 Packet Header
+https://net.cybbh.io/public/networking/latest/02_network/fg.html
+
+###IPv4 Address Scopes
+Public
+Private (RFC 1918)
+Loopback (127.0.0.0/8)
+Link-Local (APIPA)
+Multicast (Class D)
+
+###IPv4 Fragmentation
+Breaking up packets from higher MTU to lower MTU network
+Performed by routers
+MF flag is on from 1st until 2nd to last
+Offset is on from 2nd until the last
+Offset = (MTU - (IHL x 4)) / 8  ###IOT to calculate the fragment offset
+
+###Fragmentation Process
+
+###IPv6 Fragmentation
+IPv6 does not support fragmentation within its header
+Routers do not fragment IPv6 packets
+Source adjusts MTU to avoid fragmentation
+
+###Fragmentation Vulnerablities 
+Can use fragmentation overlaps to avoid firewall detection
+Attack depends on how 
+
+APIPA RFC 3927
+DHCP RFC
+
+###IPv4 Auto Configuration Vulnerability 
+Rogue DHCP
+Evil Twin
+DHCP Starvation ###Spams discover requests
+
+###ICMPv4 Protocol and Header Structure
+
+###ICMPv4 OS Fingerprinting 
+Linux:
+ Default size: 64 bytes
+ Payload message:
+Windows:
+ Default size:
+ Payload message:
+
+###ICMPv4 Traceroute
+Identifies hops between the source and destination
+Uses incrementing TTLs
+
+Can use various protocols and ports
+ ICMP
+ UDP
+ TCP
+
+###ICMPv4 Attacks
+Firewalking (traceroute)
+Oversized ICMP messages
+ICMP Redirects
+SMURF Attack
+Map network w/ IP unreachables
+ICMP Covert Channels
+
+###IPv6 Addressing
+128 bit address
+64-bit Prefix
+64-bit Interface ID
+idk fast af
+
+###IPv6 Subnetting
+Organizations assign a 48-bit Prefix by IANA
+Last 16-bits of the prefix are used for subnetting
+fast af
+
+###IPv6 Header
+
+###IPv6 Representation
+Can be shorten consecutive 0s with ::
+Can only use it once
+
+###IPv6 Address Types
+Unicast 
+Multicast
+Anycast
+
+###IPv6 Address Scopes
+Global Unicast Addresses (2000::/3)
+Unique Local (
+finish later
+
+
+
+###IPv6 Zero Configuration
+Hosts request global prefix
+ SLAAC (RFC 4862) (default)
 
 
 
