@@ -309,6 +309,91 @@ finish later
 Hosts request global prefix
  SLAAC (RFC 4862) (default)
 
+###Dynamic Routing Protocols
+Classful vs Classless
+***Know the differences
+
+###  Routed     vs          Routing Protocols
+RIP, EIGRP, OSPF, BGP     IPv4, IPX, Appletalk, NetWare
+
+###IGP and EGP
+Autonomous system numbers
+
+###Autonomous Systems
+
+###Distance Vector Routing Protocols
+Spread via rumor
+
+###Link State Routing Protocols
+LSA = Link state advertisment 
+
+###Routing Protocol Vulnerabilities
+DDOS, PMA
+
+###BGP
+Road-map of the internet
+Routes traffic between AS Number
+Advertises IP CIDR address block
+Establishes Peer relationship
+
+###BGP Operation
+
+###BGP Hijacking
+Illegitimate advertising
+
+###BGP Hijacking Defense
+IP prefix filtering
+
+###Static Routing
+Advantages
+ Does not send updates
+ No bandwidth used and minimal system resources
+ Data path is pre-determined
+Disadvantages
+ Time consuming and prone to error in configuration
+ Administrator must intervene during any network outages
+ Does not scale well for large growing networks
+
+###Dynamic Routing
+Advantages
+ Easier to configure
+ Intervention not needed with outages
+ Scales well for large networks
+Disadvantages
+ Consumes bandwidth
+ Updates can be intercepted
+ ahhhhhhhhhhhhh fg
+
+###First Hop Redundancy Protocol
+
+###OSI Layer 4 Ports
+###Transport Layer Protocols
+Connections-oriented
+ tcp
 
 
+###Port Ranges
+0-1023 Well Known (System)
+1024-49151 Registered (User)
+49152-65535 Dynamic (Private)
 
+###TCP Headers
+
+###TCP Options
+0
+1
+2
+3
+4 Selective ACK (SACK) Permitted
+5 SACK
+8 TCP Timestamps
+
+###TCP Flag Breakout
+
+###UDP Header
+Source port
+Destination Port
+Length
+Checksum
+
+###Layer 5
