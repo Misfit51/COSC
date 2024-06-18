@@ -1,0 +1,40 @@
+https://net.cybbh.io/public/networking/latest/index.html
+https://miro.com/app/board/o9J_klSqCSY=/?share_link_id=16133753693
+http://networking-ctfd-1.server.vta:8000/user
+RYVA-M-503
+
+
+
+###FUNDAMENTALS
+OSI model
+-Physical
+-Data Link   ###ARP
+-Network   ###Routing protocols
+-Transport   ###TCP, UDP
+-Session   ###SOCKS, NetBIOS
+-Presentation   ###How data is presented, ie.  JPEG, DOC
+-Application   ###HTTPS, Telnet, IMAP, SSH
+
+###Protocol Data Unit (PDU)
+Physical = Bit
+Data Link = Frame
+Network = Packet
+Transport = Segment / Datagram
+Session-Application = Data
+
+###Internet Standards Organizations
+IETF - RFC's ###Request for comment
+IANA - Internet Numbers ###Control IP's
+IEEE - LAN/WAN electrical standards ###ie. 802.11
+
+Binary, Hex conversion
+Base64
+
+###Topologies 
+Bus   ###Half Duplex, can only communicate one way
+Star   ###
+Ring   ###
+Mesh   ###Full and Partial
+Wireless   ###
+Hierarchial   ###
+
