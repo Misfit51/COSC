@@ -397,3 +397,218 @@ Length
 Checksum
 
 ###Layer 5
+
+###VPN
+Ecapsulate traffic between two end points
+Types:
+ Remote Access
+ Site-to-Site
+ Client-to-Site
+
+###L2TP (UDP 1701)
+RFC 2661
+Origins from Cisco L2F and Microsoft PPTP
+Tunnel only. No Encryption
+
+###PPTP (TCP 1723)
+RFC 2637
+Microsoft
+
+###L2F (UDP 1701)
+Cisco
+Tunnel only. No Encryption
+
+###IPSec
+Modes: Transport or Tunnel
+Headers:
+ ESP (protocol 50)
+ AH (protocol 51)
+ IKE (protocol
+
+###IPSec Transport Mode
+
+###IPSec Tunnel Mode
+
+###OpenVPN
+Open Source
+Uses OpenSSL for Encryption
+UDP*/TCP
+
+###Proxies
+
+###SOCKS 4/5 (TCP 1080)
+RFC 1928
+Uses varios Client / Server exchange messages
+ Socks protocol forward tcp traffic through tunnel *IF you attempt to forward UDP traffic with SOCKS youll look dumb
+
+###SOCKS4
+No UDP support
+
+###SOCKS5
+IPv4 and IPv6
+UDP support
+
+###NETBIOS
+TCP 139 and UDP 137/138
+Name Resolution (15 characters)
+Largely replaced by DNS
+
+###SMB / CIFS (TCP 445)
+SMB Rides over Netbios
+
+###RPC (Any Port)
+Allows a program to execute a request on a local / remote computer
+Hides network complexities
+XML, JSON, SOAP, and gRPC
+
+###API
+Framework of rules and protocols for software components to interact
+Methods, parameters, and data formats for requests and responses
+REST and SOAP
+
+###LAYER 6
+Responsibilities
+ Translating
+ Formating
+ Encoding (ASCII, HEX, BASE64)
+ Encryption (Symmetric or Asymmetric)
+ Compression
+
+###LAYER 7
+
+###TELNET (TCP 23)
+Remote Login
+Authentication
+Clear Text
+Credentials susceptible to interception
+
+###SSH (TCP 22)
+Messages provide:
+ Client/server authentication
+ Asymmetric or PKI for key exchange
+ Symmetric for session
+ User authentication
+ Data stream channeling
+
+###SSH Architecture
+Client / Server / Session
+Keys
+ User Key - Asymmetric public key used to identify the user to the server
+ Host Key - Asymmetric public key used
+ Session Key
+
+###SSH First Connection
+
+###SSH Host Key Changed
+***KEEP TRACK OF THIS
+
+###SSH Files
+~/.ssh/known_hosts
+Configs
+/etc/ssh/ssh_config
+/etc/ssh/sshd_config
+
+###SSH-KEYGEN
+Create your own SSH Public/Private Keys
+
+###HTTP(S) (TCP 80/443)
+User Request methods
+ Get / Head / Post / Put
+Server response Codes
+ 100, 200, 300, 400, 500
+
+###HTTP(S) Vulnerablities
+Flooding
+Amplification
+Low and Slow
+Drive-By Downloads
+BeEF Framework
+
+###DNS (TCP/UDP 53)
+
+###DNS Query / Response
+
+###DNS Records
+A
+AAAA
+MX
+TXT
+NS
+SOA
+
+###DNS DOmains
+
+###FTP (TCP 20/21)
+RFC 959
+Port 21 open for Control
+Port 20 only open during data transfer
+Authentication or Anonymous
+Clear Text
+Modes
+ Active (default)
+ Passive
+
+###FTP Active
+client initiates
+connect to default data port (20)
+###FTP Passive
+client initiates
+connect to passive port
+
+###TFTP (UDP 69)
+Clear Text
+Reliability provided at Application Layer
+
+###SMTP (TCP 25)
+Used to send email
+no encryption
+
+###POP (TCP 110)
+Recieves email
+
+###IMAP (TCP 143)
+Recieves email
+No encryption
+
+###DHCP (UDP 67/68)
+DORA
+Discover (Broadcast)
+Offer (Unicast)
+Request (Broadcast)
+Acknowledge (Unicast)
+
+###DHCPV6
+Managed flag is set during SLAAC
+Solicit (Multicast)
+Advertise
+Request
+Reply
+
+###NTP (UDP 123)
+Network Time Protocol
+
+###AAA Protocols
+
+###TACACS (TCP 49) Simple / Extended
+Cisco
+
+###RADIUS (UDP
+
+###DIAMETER (TCP 3868)
+
+###SNMP (UDP 161/162)
+
+###RTP (UDP any above 1023)
+
+###RDP (TCP 3389)
+
+###Kerberos (UDP 88)
+Secure network authentication protocol
+Windows Active Directory
+
+###LDAP(S) (TCP 389 AND 636)
+Client / Server model
+Hierarchical
+Directory schema
+Unsecure and secure versions
+
