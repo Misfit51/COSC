@@ -2,7 +2,13 @@ https://net.cybbh.io/public/networking/latest/index.html
 https://miro.com/app/board/o9J_klSqCSY=/?share_link_id=16133753693
 http://networking-ctfd-1.server.vta:8000/user
 RYVA-M-503
+Jump Box
 
+    Student#: student18
+
+    Command: ssh student@10.50.27.58 -X
+
+    Password: password
 
 
 ###FUNDAMENTALS
