@@ -618,3 +618,107 @@ Hierarchical
 Directory schema
 Unsecure and secure versions
 
+
+
+
+###Network Traffic Sniffing
+Libpcap
+WinPcap
+NPcap
+
+###Use of sniffing tools
+Advantages
+
+Disadvantages
+    Requires elevated permissions
+    Can only capture what the NIC can see
+    Cannot capture local traffic
+    Can consume massive amounts of system resources
+    Lost packets on busy networks
+
+###Packets can be captured in two ways
+Hardware packet sniffer
+Software packet sniffer
+
+###Socket Types
+User Space Sockets
+    Stream socket - TCP
+    Datagram socket - UDP
+Kernel Space Sockets
+
+###Capture Library
+Requires root for:
+
+###Types of Sniffing
+Active - Actually interact with the device
+Passive - Sit back and listen
+
+###Popular Software Packet Programs
+tcpdump, wireshark, tshark, p0f, networkminer, netminer, solarwinds, bettercap, ettercap
+###Other PAcket Capture Programs
+nmap, snort, scapy, suricata
+
+###Interface Naming
+Traditional
+    eth0, eth1
+Consistent
+
+###TCPDUMP PRIMITIVES
+User friendly capture expressions
+    src or dst, host or net, tcp or udp
+
+type - the 'kind of thing'
+dir - transfer direction
+proto - 
+
+###Basic tcpdump options
+sudo tcpdump -r <PCAP> -XX -vv
+sudo tcpdump port 80 or 22 -vn (verbose names)
+sudo tcpdump arp (or any other protocol in the pcap)
+
+###Berkley Packet Filtering (BPF)
+Similar to primatives
+Reduces redundant computations
+More complex expressions
+
+###Compare Primatives and BPFs
+BPF
+    Control Flow Graph (CFG) model
+
+###Kernel API
+TCPDUMP requests a RAW Socket creation
+Filters are set using SO_ATTACH_FILTER
+SO_ATTACH_FILTER allows us to attach BPF
+
+###Berkley Packet Filters (Like regex, its a tool that works on multiple platforms)
+still uses tcpdump
+tcpdump -i eth0 'ether[12:2] = 0x0806'
+tcpdump -i eth1 'ip[9] = 0x06'
+tcpdump -i eth0 'tcp[0:2] = 53 || tcp[2:2] = 53'
+tcpdump 'ether[12:2] = 0x0800 && (tcp[2:2] != 22 || tcp[2:2] != 23)'
+
+###Bitwise masking
+BPFs can read 1 byte, 2 halfword or 4 word
+BPFs alone will only filter 
+
+###Bitwise masking examples
+tcpdump 'ether[12:4] & 0xffff0fff = 0x81000abc' (8100 = vlan) (f = all bits, 0 = off, 1 = only the 1st bit 2 = second bit)
+tcpdump 'ip[1] & 252 = 32'
+tcpdump 'ip[6] & 224 != 0'
+tcpdump 'tcp[13] & 0x11 = 0x11'
+tcpdump 'tcp[12] & 0xf0 > 0x50'
+
+
+#Search for MF set or offset field having any value greater than 0
+'ip[6] & 0x20 || ip[6:2] & 0x1fff > 0'
+'ip[6] & 32 = 32 || ip[6:2] & 8191 > 0'
+
+#Search for offet field having any value greater than 0
+'ip[6:2] & 0x1fff > 0'
+'ip[6:2] & 8191 > 0'
+
+
+
+'ip[6:2] & 8191 > 0'
+
+
