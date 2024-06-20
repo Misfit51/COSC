@@ -717,6 +717,11 @@ tcpdump 'tcp[12] & 0xf0 > 0x50'
 'ip[6:2] & 0x1fff > 0'
 'ip[6:2] & 8191 > 0'
 
+
+###Saved filteres
+sudo tcpdump -n "ip[8] <= 64 || ip6[7] <= 64" -r BPFCheck.pcap | wc -l     ###capture all packets with a ttl of 64 and less, utilizing the IPv4 or IPv6 Headers
+sudo tcpdump -n "ip[6] & 0x40 = 64" -r BPFCheck.pcap | wc -l    ###capture all IPv4 packets with at least the Dont Fragment bit set?
+sudo tcpdump -n "tcp[0:2] > 1024 || udp[0:2] > 1024" -r BPFCheck.pcap | wc -l ###capture traffic with a Source Port higher than 1024, utilizing the correct Transport Layer Headers?
 sudo tcpdump -n "tcp[0:2] = 53 || tcp[2:2] = 53 || udp[0:2] = 53 || udp[2:2] = 53" -r BPFCheck.pcap | wc -l    ### capture all packets relating to DNS
 sudo tcpdump -n "tcp[13] = 0x02" -r BPFCheck.pcap | wc -l    ###capture the initial packets from a client trying to initiate a TCP connection
 sudo tcpdump -n "tcp[2:2] = 80 || tcp[0:2] = 80" -r BPFCheck.pcap | wc -l    ###capture all HTTP traffic
