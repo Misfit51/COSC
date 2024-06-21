@@ -727,5 +727,17 @@ sudo tcpdump -n "tcp[13] = 0x02" -r BPFCheck.pcap | wc -l    ###capture the init
 sudo tcpdump -n "tcp[2:2] = 80 || tcp[0:2] = 80" -r BPFCheck.pcap | wc -l    ###capture all HTTP traffic
 sudo tcpdump -n "ether[12:2] = 0x0806" -r BPFCheck.pcap | wc -l    ###capture all ARP traffic
 sudo tcpdump -n "ip[6:2] = 0x8000" -r BPFCheck.pcap | wc -l    ###capture if the "Evil bit" is set
+sudo tcpdump -n "ip[6] & 0x80 = 0x80" -r BPFCheck.pcap | wc -l    ###evil bit
+sudo tcpdump -n "ip[9] = 0x10" -r BPFCheck.pcap | wc -l
+sudo tcpdump -n "ip[1] & 0xFC = 0x94" -r BPFCheck.pcap | wc -l    ###capture all IPv4 packets with the DSCP field of 37
+sudo tcpdump -n "ip[8] = 0x01 && (ip[9] = 0x11 || ip[9] = 0x01)" -r BPFCheck.pcap | wc -l
+sudo tcpdump -n "tcp[13] & 0x20 != 0x20 && tcp[18:2] > 0" -r BPFCheck.pcap | wc -l
+sudo tcpdump -n "tcp[13] = 0x0 && ip[16:4] = 0x0a0a0a0a" -r BPFCheck.pcap | wc -l
+sudo tcpdump -n "ether[12:4] & 0xffff0fff = 0x81000001 && ether[16:4] & 0xffff0fff = 0x8100000A" -r BPFCheck.pcap | wc -
 
+128 64 32 16 8 4 2 0
+1   0  0  1  0 1 0 0
+
+32 16 8 4 2 1 
+1  0  0 1 0 1
 
