@@ -127,19 +127,19 @@ dst_ip = "127.0.0.1"
 ##################
 # Lets add the IPv4 header information
 # This is normally 0x45 or 69 for Version and Internet Header Length
-ip_ver_ihl =
+ip_ver_ihl = 69
 # This combines the DSCP and ECN feilds.  Type of service/QoS
-ip_tos =
+ip_tos = 0
 # The kernel will fill in the actually length of the packet
 ip_len = 0
 # This sets the IP Identification for the packet. 1-65535
 ip_id =
 # This sets the RES/DF/MF flags and fragmentation offset
-ip_frag =
+ip_frag = 0
 # This determines the TTL of the packet when leaving the machine. 1-255
-ip_ttl =
+ip_ttl = 255
 # This sets the IP protocol to 16 (CHAOS) (reference IANA) Any other protocol it will expect additional headers to be created.
-ip_proto =
+ip_proto = 6
 # The kernel will fill in the checksum for the packet
 ip_check = 0
 # inet_aton(string) will convert an IP address to a 32 bit binary number
@@ -167,9 +167,9 @@ tcp_ack_seq =
 # can optionaly set the value of the offset and reserve. Offset is from 5 to 15. RES is normally 0.
 #tcp_off_res =
 # data offset specifying the size of tcp header * 4 which is 20
-tcp_data_off =
+tcp_data_off = 5
 # the 3 reserve bits + ns flag in reserve field
-tcp_reserve =
+tcp_reserve = 0
 # Combine the left shifted 4 bit tcp offset and the reserve field
 tcp_off_res = (tcp_data_off << 4) + tcp_reserve   
 # can optionally just set the value of the TCP flags
