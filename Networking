@@ -839,3 +839,58 @@ base64 file.txt > file-encoded.txt
     Decode file from base64:
 
 base64 -r file-encoded.txt > file-decoded.txt
+
+
+###Network Recon
+ss -ntlp (TCP Listening ports)
+* Port 6010 is used by terminator
+Use the screenshot tool
+Enumerate every box!
+
+
+#######################################
+Net Recon Methodology
+
+    Host Discovery
+        Ruby ping sweep (if ping available)
+        Nmap scan if no ping
+    Port Discovery
+        nmap
+        nc scan script
+    Port Validation
+        Banner grabbing using nc
+    Follow-on actions based on ports found
+        if 21 FTP [IP ADDR] connects to ftp server
+        if 21 or 80 wget -r IP_ADDRESS (or) wget -r ftp://IP_ADDRESS (or) firefox
+            passive
+            Is
+            get [file name]
+        if 22 or 23 CONNECT and PASSIVE RECON
+
+Scan Methodology
+    nmap -Pn [IP Addr] -T4 -p 21-23,80
+
+    Quick Scan Ports 21-23,80
+    Specific ports based on hints/clues found
+    Well known port range
+        0 - 1023 (Actually scan 1-1023)
+    Chunks of 2000 or first 10000 ports (65535)
+
+Passive Recon Methodology
+
+    Hostname
+        hostname
+    Permissions:
+        sudo -l (What are my permissions?)
+    Interfaces and subnets
+        ip a
+    Neighbors
+        ip neigh
+    Files of interest
+        find / -iname flag* 2>/dev/null
+        find / -iname hint*
+    Other listening ports
+        ss -ntlp ("ss -nult" for UDP ports)
+    Available Tools
+        which tcpdump wireshark nmap telnet get curl ping (if a command requires sudo it wont appear unless which is run with sudo)
+
