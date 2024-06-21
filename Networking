@@ -741,3 +741,101 @@ sudo tcpdump -n "ether[12:4] & 0xffff0fff = 0x81000001 && ether[16:4] & 0xffff0f
 32 16 8 4 2 1 
 1  0  0 1 0 1
 
+
+
+
+###SOCKETS
+###Socket types
+-stream sockets - TCP
+-datagram sockets - UDP
+-RAW sockets - whatever you want
+
+###User space vs Kernel space sockets
+User space
+    stream sockets
+    datagram sockets
+Kernel space
+    raw sockets (must be actively built)
+
+###User space applications / sockets
+using tcpdump or wireshark to read file
+using nmap with no switches
+using netcat to connect to a listener
+using netcat to create a lsitener above the well known port range
+using /dev/tcp or /dev/udp to transmit data
+
+###Kernel space applications / sockets
+using tacpdump or wireshark to capture packet on the wire
+using nmap for OS id
+
+###Imports
+    import {module}
+    from {module} import *
+    from {module} import {function}
+
+###
+import socket
+    s - socket.socket( *family*, *type*, *protocol* )
+
+family: AF_INET*,AF_INET6,AF_UNIX
+type: SOCK_STREAM*,SOCK_DGRAM,SOCK_RAW
+proto: 0*,IPPROTO_TCP,IPPROTO_UDP,IPPROTO_IP,IPPROTO_ICMP,IPROTO_RAW
+
+###Python3 libraries
+Socket, Errors, Struct, Execptions, Sys
+
+###WHEN A COMPUTER IS TALKING ABOUT ITSELF IT USED 127.0.0.1###
+
+###RAW IPv4 Sockets
+###Use cases
+test defense mechanisms
+avoiding test mechanisms
+obfuscate data during transfer
+manually crafting a packet with the chosen data
+
+
+tcpraw
+src
+dst
+seq
+flags
+win
+urg_ptr
+
+###Encoding
+UTF-8,Base64,Hex
+
+Encoding -
+Encryption
+
+###Hex encoding and decoding
+
+    Encode text to Hex:
+
+echo "MSG" | xxd
+
+    Encode file to Hex:
+
+xxd file.txt file-encoded.txt
+
+    Decode file from Hex:
+
+xxd -r file-encoded.txt file-decoded.txt
+
+
+###Python hex encoding
+import binascii
+
+Base64 encoding and decoding
+
+Encode text to Base64:
+
+echo "MSG" | base64
+
+    Encode file to base64:
+
+base64 file.txt > file-encoded.txt
+
+    Decode file from base64:
+
+base64 -r file-encoded.txt > file-decoded.txt
