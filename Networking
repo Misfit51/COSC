@@ -894,3 +894,105 @@ Passive Recon Methodology
     Available Tools
         which tcpdump wireshark nmap telnet get curl ping (if a command requires sudo it wont appear unless which is run with sudo)
 
+
+
+###Recon Stages
+Passive External
+Active External
+Passive Internal
+Active Internal
+
+###Recon Steps
+Network Footprinting
+Network Scanning
+Network Enumeration
+Vulnerability Assessment
+
+###Network Enumeration
+Network resources and share
+Users and Groups
+
+###Useful Sites
+http://www.pentest-standard.org/
+https://osintframework.com/
+https://www.securitysift.com/passive-reconnaissance/
+
+###Passive Recon Activities
+IP Address and Sub-domains
+Identifying External / 3rd Party Sites
+Identify People
+Identify Technologies
+
+###Dig Vs Whois
+whois - queries dns registrar over tcp 43
+
+dig - queries udp
+
+whois zonetransfer.me
+
+dig zonetransfer.me A
+dig zonetransfer.me AAAA
+dig zonetransfer.me MX
+dig zonetransfer.me TXT
+dig zonetransfer.me NS
+dig zonetransfer.me SOA
+
+###Zone transfer
+tcp port 53
+
+dig axfr {@soa.server} {target-site}
+dig axfr @nsztm1.digi.nija zonetransfer.me
+
+###Historical Content
+Wayback Machine
+
+###Google Dorking
+
+###Passive OS Fingerprinting (P0F)
+
+more /etc/p0f/p0f.fp 
+sudo p0f -r test.pcap
+
+###Social Tactics
+Social Engineering
+
+###Scanning Nature
+Active
+Passive
+
+###Scanning Strategy
+Remote to local
+local to remote
+local to local
+remote to remote
+
+###Scanning Approach
+Aim
+    wide range target scan
+    target specific scan
+Method
+    single source scan
+
+###Network Service Discovery
+Broadcast Ping / Ping swepp -sP , -PE
+SYN scan -sS
+Full connect scan -sT
+Null scan -sN
+FIN scan -sF
+XMAS tree scan -sX
+UDP scan -sU
+Idle scan -sl
+ACK / Window scan -sA
+RPC scan -sR
+
+-PE (ICMP Ping)
+-Pn (No Ping)
+
+###NMAP Time Out
+-T0 paranoid 300 sec
+-T1 sneaky 15 sec
+-T2 Polite 1 sec
+-T3 Normal 1 sec
+-T4 aggresive 500ms
+-T5 insane 250ms
+
