@@ -996,3 +996,112 @@ RPC scan -sR
 -T4 aggresive 500ms
 -T5 insane 250ms
 
+###Traceroute - Firewalking
+
+###Netcat - Scanning
+nc [options] [target ip] [target ports(s)]
+-z: Port scanning mode
+-v: Be verbose
+-n: do not resolve ip
+-w1: set timeout value to 1
+-u:
+
+
+###Netcat - TCP Scan Script###
+
+
+#!/bin/bash
+
+echo "Enter network address (e.g. 192.168.0): "
+read net
+echo "Enter starting host range (e.g. 1): "
+read start
+echo "Enter ending host range (e.g. 254): "
+read end
+echo "Enter ports space-delimited (e.g. 21-23 80): "
+read ports
+
+for ((i=$start; $i<=$end; i++))
+
+do
+    nc -nvzw1 $net.$i $ports 2>&1 | grep -E 'succ|open'
+done
+
+
+###UDP Scan###
+
+
+#!/bin/bash
+
+echo "Enter network address (e.g. 192.168.0): "
+read net
+echo "Enter starting host range (e.g. 1): "
+read start
+echo "Enter ending host range (e.g. 254): "
+read end
+echo "Enter ports space-delimited (e.g. 21-23 80): "
+read ports
+
+for ((i=$start; $i<=$end; i++))
+
+do
+    nc -nuvz $net.$i $ports 2>&1 | grep -E 'succ|open'
+done
+
+
+###NC Banner grabbing
+nc [tgt ip] [port #]
+
+###Curl and Wget
+Curl - Displays ASCII, not saved
+    curl http://172.16.82.106
+    curl ftp://172.16.82.106
+Wget - Downloads (-r recursive)
+    wget -r http://172.16.82.106
+    wget -r ftp://172.16.82.106
+
+###Packet Sniffers
+Wireshark
+Tcpdump
+
+###Native Host Tools (Do not proxy chain these commands with tunnels)
+Show TCP/IP netwokr config
+Windows: ipconfig /all
+Linux: ip address (ifconfig depreciated)
+VyOS: show interface
+
+Show ARP cache
+Windows: arp -a
+Linux: ip neighbor (arp -a depreciaed)
+
+Show network connections
+Windows: netstat
+Linux: ss (netstat depreciated)
+
+Show running processes
+Windows: tasklist
+Linux: ps -elf or top
+
+which
+whereis
+
+Windows: route print
+Linux: ip route (netstat -r deprecated)
+VyOS: show ip route
+
+find / -iname hint* 2> /dev/null
+find / -iname flag* 2> /dev/null
+
+###Active Internal
+Arp scanning
+
+Ping Sweep
+for i in {1..254}; do (ping -c 1 172.16.82.$i | grep "bytes from" &) ; done
+
+###Mapping
+Device Types, System host-names, interface names (etho), 
+screenshot ip route
+IF CREDENTIALS ARE NOT GIVEN use tcpdump and sniff for telnet traffic
+
+10.50.21.8
+net1_student18:password18
