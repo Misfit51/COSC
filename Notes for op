@@ -102,3 +102,7 @@ Passive Recon Methodology
         ss -ntlp ("ss -nult" for UDP ports)
     Available Tools
         which tcpdump wireshark nmap telnet get curl ping (if a command requires sudo it wont appear unless which is run with sudo)
+
+
+use -X when ssh to use eom on pngs
+
