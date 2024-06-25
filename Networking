@@ -1196,7 +1196,7 @@ nc 192.168.1.1 2222
 -----------                                    -----------                               -----------
 
                                             (listener to listener)
-nc -lvp 1111                nc <box1IP> 1111 < mypipe | nc <box3IP> 2222 > mypipe         nc -lvp 2222
+nc -lvp 1111                nc <box3IP> 2222 < mypipe | nc <box1IP> 1111 > mypipe         nc -lvp 2222
                                             (client to client)
 nc <box2IP> 3333            nc -lvp 3333 < mypipe | nc -lvp 4444 > mypipe               nc <box2IP> 4444
                                             (listener to client)
