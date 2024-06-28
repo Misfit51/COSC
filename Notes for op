@@ -129,3 +129,14 @@ Utilize the targets T1, T2, and RELAY to develop the following netcat relays for
     Use the syntax: steghide extract -sf [image name] to extract the hidden message. Use password when prompted for a passphrase.
 
 
+
+
+
+
+
+T1
+Hostname: INTERNET_HOST
+External IP: 10.50.XXX.XXX (ALREADY PROVIDED)
+Internal IP: 10.10.0.40 (ALREADY PROVIDED)
+creds: (ALREADY PROVIDED)
+Action: Perform Analysis on directed pcaps.
