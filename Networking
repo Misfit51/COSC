@@ -1325,8 +1325,18 @@ Port forward listening port: ssh 172.16.82.106 -L 12002:192.5.5.5:22
 #For Dynamic Tunnels
 -D 9050
 
-
-
+Tunneling activity 3
+@IH: ssh user@10.50.29.89 -p 1234 -D 9050 -NT ###dont forget to close
+@IH: ssh user@10.50.22.101 -p 1234 -L 11801:172.17.17.28:23 -NT
+@IH: telnet localhost 11801
+@HB: ssh user@172.17.17.17 -R 11802:localhost:4321 -NT
+@IH: ssh user@10.50.29.89 -p 1234 -L 11803:localhost:11802 -NT
+@IH: ssh user@localhost -p 11803
+@IH: ssh user@localhost -p -D 9050 -NT
+@IH: ssh user@localhost -p 11803 -L 11804:192.168.30.150:1212 -NT
+@IH: ssh user@localhost -p 11804 -D 9050 -NT
+@IH: ssh user@localhost -p 11804 -L 11805:10.10.12.121:2932 -NT
+@IH: ssh user@localhost -p 11805 -D 9050 -NT
 
 
 
