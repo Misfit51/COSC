@@ -1339,5 +1339,137 @@ Tunneling activity 3
 @IH: ssh user@localhost -p 11805 -D 9050 -NT
 
 
+###Network Analysis###
+#Sensors
+    In Line
+        Test Access Point (TAP)
+        Man in the middle (MitM)
+    Out of Band (Passive)
+        Switched Port Analyzer (SPAN)
 
+#In Line Sensors
+Placed between communicating devices to stop attacks
+    Intrusion preventions system (IPS)
+
+#Passive sensor
+Monitors network segment
+Can detect attacks but not stop them
+Gets copies of traffic
+
+#TAP
+Appliance placed between 2 network devices
+best for packet collection with no data loss
+Must be placed "in line" of network traffic
+Not scalable
+
+#MitM
+Attcker can use ARP or some other method / protocol
+Attacker can sniff or manipulate traffic that flows through it
+
+#SPAN
+Configured on the network Switch
+Best for packet collection of traffic from several switch ports at once
+Scalable
+Can have a high degree of packet loss
+Places burden on the network switch
+
+#Fingerprinting and Host Identification
+#Fingerprinting
+Active OS Fingerprinting
+    Easier
+Passive OS fingerprinting
+    More difficult
+    Rely on sniffing packets
+
+#Open ports and protocols
+
+#Ephemeral Ports
+TCP source port
+
+#Protocol Specific Identifiers
+HTTP:
+SSH:
+NetBIOS:
+
+#P0F (Passive OS Fingerprinting)
+TTL
+
+#What is baselining
+Snapshot of what the netwokr looks like during a time frame
+No industry standard
+7 days to establish the initial snapshot
+Prerequisite Information
+
+#Network Baseline Objective
+Determines the current state of your network
+Ascertain the current utilization of network resources
+Identify normal vs peak network traffic time frames
+Verify port/protocol usage
+
+#Perform baselining
+Preparation
+    Network Diagram
+    Known Servers, Hosts, and Networking devices
+    Known IPs, ports, and protocol
+    Known forbidden IPs, ports, and protocols
+    Known traffic "flows"
+
+Scope and Objectives:
+    What traffic / protocols to capture
+    Which network segments?
+    Which days?
+    What times?
+
+Using Wireshark
+
+Methodologies
+    Footprinting
+    Network scanning
+    Network Enumeration
+    Vulnerability Assessment
+
+Cyber Kill Chain
+Recon, Weaponization, Delivery, Exploitation, Installation, Command and Control, Actions on Objectives
+
+Anomaly Detection
+Indicator of Attack IOA
+    Proactive
+    A series of actions that are suspicious together
+    Focus on Intent
+    Looks for what must happen
+        Code execution. persistence, lateral movement
+
+Indicator of Compromise IOC
+    Reactive
+    Forensic Evidence
+    Provides information that can change
+        Malware, IP addresses, exploits
+
+Some Indicators
+    .exe / executable files
+    NOP sled
+    Repeated Letters
+    Well Known Signatures
+    Mismatched Protocols (ssh going to telnet)
+    Unusual traffic
+    Large amounts of traffic / unusual times
+
+Signs of IOA
+    Destination IP / Ports
+    Public Servers / DMZ
+    Off-Hours
+    Network Scans
+    Alarm events
+    Malware Reinfection
+    Remote logins
+    High amounts of some protocols
+
+Signs of IOC
+    Unusual traffic outbound
+    Anomalous user login or account use
+    Size of responses for HTML
+    High number of requests for same files
+    Using non-standard ports / application port mismatch
+    Writing changes to the registry / system files
+    Unexpected / unusual patching or tasks
 
