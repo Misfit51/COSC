@@ -1638,6 +1638,10 @@ sudo nft list table CLASS_ALPHA
 sudo nft add chain ip CLASS_ALPHA INPUT { type filter hook input priority 0 \; policy accept \; }
 sudo nft add chain ip CLASS_ALPHA OUTPUT { type filter hook input priority 0 \; policy accept \; }
 
+###Change implicit accept to deny
+sudo nft add chain TRASH INPUT { \; policy drop \;}
+sudo nft add chain TRASH OUTPUT { \; policy drop \;}
+
 ###Allow ssh in and out
 sudo nft insert rule ip CLASS_ALPHA INPUT tcp dport 22 accept
 sudo nft insert rule ip CLASS_ALPHA INPUT tcp sport 22 accept
