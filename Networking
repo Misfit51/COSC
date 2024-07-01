@@ -1490,4 +1490,213 @@ Tunneling Activity 4
 
 
 ###Access Controls
+Why filter traffic?
+    Block malicious traffic
+    Decrease load on network infrastructure
+    Ensure data flows in an efficient manner
+    Ensure data gets to intended recipients and only intended recipients
+    Obfuscate network internals
+
+Practical applications for filtering
+    Network traffic
+    email address
+    computer applications
+    MAC filtering
+
+Network Traffic filtering concepts
+    Protocls Operation
+    Header Analysis
+    Network Reconnaissance
+    Tunnel analysis
+    IOA and IOC
+    Malware Analysis
+
+Defense in Depth
+    Perimeter Security
+    Network Security
+    Endpoint Security
+    Application and OS Security
+    Data Security
+
+Default Policies
+    Explicit - precisely and clearly expressed
+    Implicit - implied or understood
+
+Block listing vs allow listing
+    Block listing (black list)
+        implicit accept
+        explicit deny
+    Allow listing (white list)
+        implicit deny
+        explicit accept
+
+Routed mode - firewall inspects L3
+
+Transparent mode - firewall only inspects L2
+
+Firewall Filtering Methods
+    Stateless Filtering (L3 + 4)
+    Stateful Inspection (L4)
+    Circuit level (L5)
+    Application layer (L7)
+    Next Generation (NGFW) (L7)
+
+Software vs Hardware vs Cloud Firewalls
+    Software - typically host based
+    Hardware - typically network based
+    Cloud - provided as a service
+
+Traffic Directions
+
+Basic Filtering intent
+
+IPTables
+    filter
+    nat
+    mangle
+    raw
+    security
+
+Chains of IPTables
+
+Chains assigned to each table
+    filter - input, forward, and output
+    nat - prerouting, postrouting, input, and output
+    mangle - all chains
+    raw - prerouting
+    security
+
+Common IPTable Options
+
+###commands for prac
+sudo iptables -L
+
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT     ###These 4 allow ssh 
+sudo iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT    
+sudo iptables -A INPUT -p tcp --sport 22 -j ACCEPT     
+sudo iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT     
+
+sudo iptables -A INPUT -p tcp -m multiport --ports 6010,6011,6012 -j ACCEPT     ###X11 forwarding
+sudo iptables -A OUTPUT -p tcp -m multiport --ports 6010,6011,6012 -j ACCEPT
+
+###change default policy from implicit allow
+sudo iptables -P INPUT DROP
+sudo iptables -P OUTPUT DROP
+sudo iptables -P FORWARD DROP
+
+###Blocks anything from this IP
+sudo iptables -I INPUT -s 172.16.82.112 -j DROP
+sudo iptables -I OUTPUT -s 172.16.82.112 -j DROP
+
+###Allows any traffic to or from this IP
+sudo iptables -A INPUT -s 172.16.40.10 -j ACCEPT
+sudo iptables -A OUTPUT -d 172.16.40.10 -j ACCEPT
+
+###Saving your table
+sudo iptables-save > cctcscript.conf
+
+###Restore your table
+sudo iptables-restore < cctcscript.conf -v
+
+###Wipe rules
+sudo iptables -F
+
+NFTables Enchancements
+    replaces iptables
+    can configure ipv4 or 6
+
+NFTables Families
+ip - IPv4
+ip6 - IPv6
+
+NFTables Hooks
+    ingress
+    prerouting
+    input
+
+Chain types
+    filter
+    route
+    nat
+
+###Create the NFTable
+nft add table [family] [table]      #(table if a name we give it)
+
+###Create the Base Chain
+nft add chain [family] [table] [chain] { type [type] hook [hook] 
+
+###List IP and IP6 tables
+sudo nft list ruleset
+
+###Create ruleset for class alpha
+sudo nft add table ip CLASS_ALPHA
+
+###List ruleset for a specific class
+sudo nft list table CLASS_ALPHA
+
+###Create chain and set implicit allow on input and output
+sudo nft add chain ip CLASS_ALPHA INPUT { type filter hook input priority 0 \; policy accept \; }
+sudo nft add chain ip CLASS_ALPHA OUTPUT { type filter hook input priority 0 \; policy accept \; }
+
+###Allow ssh in and out
+sudo nft insert rule ip CLASS_ALPHA INPUT tcp dport 22 accept
+sudo nft insert rule ip CLASS_ALPHA INPUT tcp sport 22 accept
+sudo nft insert rule ip CLASS_ALPHA OUTPUT tcp dport 22 accept
+sudo nft insert rule ip CLASS_ALPHA OUTPUT tcp sport 22 accept
+
+###Drop this address
+sudo nft insert rule ip CLASS_ALPHA INPUT ip saddr 172.16.82.106 drop
+sudo nft insert rule ip CLASS_ALPHA OUTPUT ip daddr 172.16.82.106 drop
+
+###Accept this address
+sudo nft insert rule ip CLASS_ALPHA OUTPUT ip daddr 172.16.82.112 accept
+sudo nft insert rule ip CLASS_ALPHA INPUT ip saddr 172.16.82.112 accept
+
+###X11 forwarding
+sudo nft insert rule ip CLASS_ALPHA INPUT tcp dport { 6010, 6012, 6011 } ct state { new, established } accept
+sudo nft insert rule ip CLASS_ALPHA OUTPUT tcp dport { 6010, 6012, 6011 } ct state { new, established } accept
+sudo nft insert rule ip CLASS_ALPHA INPUT tcp sport { 6010, 6012, 6011 } ct state { new, established } accept
+sudo nft insert rule ip CLASS_ALPHA OUTPUT tcp sport { 6010, 6012, 6011 } ct state { new, established } accept
+
+###Save table
+sudo nft list table CLASS_ALPHA > nftables.rule
+
+NAT
+
+###NAT & PAT Operators & Chains
+
+###Source NAT
+iptables -t nat -A POSTROUTING -o eth0 -s 192.168.0.1 -j SNAT --to 1.1.1.1
+
+###Source PAT
+iptables -t nat -A POSTROUTING -p tcp -o eth0 -s 192.168.0.1 -j SNAT --to 1.1.1.1:9001
+
+###Source NAT 
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+###Destination NAT
+iptables -t nat -A PREROUTING -i eth0 -d 8.8.8.8 -j DNAT --to 10.0.0.1
+
+Creating NAT tables and chains
+###Create the NAT table
+nft add table ip NAT
+
+###Create the NAT chains
+nft add chain ip NAT PREROUTING { type nat hook prerouting priortiy 0 \; }
+nft add chain ip NAT POSTROUTING { type nat hook prerouting priority 0 \; }
+
+###Source NAT
+nft add rule ip NAT POSTURING ip saddr 10.10.0.40 oif eth0 snat 144.15.60.11
+nft add rule ip NAT POSTROUTING oif eth0 masquerade
+
+###Destination NAT
+
+Mangle Rules
+###Mangle rules with IPTables
+iptables -t mangle -A POSTROUTING -o eth0 -j TTL --ttl-set 128
+iptables -t mangle -A POSTROUTING -o eth0 -j DSCP --set-dscp 26
+
+###Mangle rules with NFTables
+nft add table ip MANGLE
+& more
 
