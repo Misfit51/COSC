@@ -1473,3 +1473,21 @@ Signs of IOC
     Writing changes to the registry / system files
     Unexpected / unusual patching or tasks
 
+
+
+Tunneling Activity 4
+@IH: telnet 10.50.22.42
+@A: ssh user@10.50.20.51 -R 11801:localhost:8462 -NT
+@IH: ssh user@localhost -p 11801 -D 9050 -NT
+@IH: ssh user@localhost -p 11801 -L 11802:192.168.100.60:22 -NT
+@IH: ssh user@localhost -p 11802 -L 11803:10.90.50.140:6481 -NT
+@IH: ssh user@localhost -p 11803 -L 11804:172.20.21.5:23 -NT
+@IH: telnet 172.20.21.5 11804
+@D: ssh user@172.20.21.4 -R 11805:localhost:22 -NT
+@IH: ssh user@localhost -p 11803 -L 11806:localhost:11805 -NT
+
+
+
+
+###Access Controls
+
