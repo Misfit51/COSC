@@ -1653,7 +1653,7 @@ sudo nft insert rule ip CLASS_ALPHA INPUT ip saddr 172.16.82.106 drop
 sudo nft insert rule ip CLASS_ALPHA OUTPUT ip daddr 172.16.82.106 drop
 
 ###Accept this address
-sudo nft insert rule ip CLASS_ALPHA OUTPUT ip daddr 172.16.82.112 accept
+sudo nft insert rule ip CLASS_ALPHA OUTPUT ip saddr 172.16.82.112 accept
 sudo nft insert rule ip CLASS_ALPHA INPUT ip saddr 172.16.82.112 accept
 
 ###X11 forwarding
@@ -1664,6 +1664,12 @@ sudo nft insert rule ip CLASS_ALPHA OUTPUT tcp sport { 6010, 6012, 6011 } ct sta
 
 ###Save table
 sudo nft list table CLASS_ALPHA > nftables.rule
+
+?????
+sudo iptables -t nat -A POSTROUTING -p tcp -o eth0 -j SNAT --to 172.16.82.112:9005
+???
+Configure POSTROUTING chain to translate T6 IP address to T2 (Create the rule by specifying the Interface information first then Layer 3)
+
 
 NAT
 
